@@ -23,11 +23,11 @@ class meansvars(MRJob):
         title = splt[1]
         count = splt[2]
         count_sq = splt[2] ** 2
-        yield(key, (date, count, count_sq))
+        yield(title, (date, count, count_sq))
 
     def combiner(self, key, vals):
         total = 0
-        total_sq
+        total_sq = 0
         first_date = date(2018, 3, 22)
         for v in vals:
             date = v[0]
@@ -45,7 +45,7 @@ class meansvars(MRJob):
 
     def reducer(self, key, vals):
         total = 0
-        total_sq
+        total_sq = 0
         first_date = date(2018, 3, 22)
         for v in vals:
             date = v[0]
