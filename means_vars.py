@@ -21,8 +21,8 @@ class meansvars(MRJob):
         splt = line.split(",")
         date = splt[0]
         title = splt[1]
-        count = splt[2]
-        count_sq = splt[2] ** 2
+        count = int(splt[2])
+        count_sq = int(splt[2]) ** 2
         yield(title, (date, count, count_sq))
 
     def combiner(self, key, vals):
