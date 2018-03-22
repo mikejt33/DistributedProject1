@@ -19,6 +19,7 @@ class meansvars(MRJob):
 
     def mapper(self, _, line):
         splt = line.split(",")
+        print(splt)
         date = splt[0]
         title = splt[1]
         count = int(splt[2])
