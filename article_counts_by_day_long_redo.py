@@ -38,8 +38,9 @@ class articlecounts(MRJob):
             except:
                 counts[str(v)] = 1
         for entry in counts:
-            out_string = str(key) + "," + str(entry) + "," + str(counts[entry])
-            print(out_string)
+            if counts[entry] > 0:
+                out_string = str(key) + "," + str(entry) + "," + str(counts[entry])
+                print(out_string)
         # outFile.write(output_string)
 
 if __name__ == '__main__':
