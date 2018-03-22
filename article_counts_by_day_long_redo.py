@@ -15,10 +15,10 @@ articles = {}
 
 # articlesFile = open("distinct.txt", "r+")
 
-for line in articlesFile:
+"""for line in articlesFile:
     row = line.split()
     key = row[0][1:-1]
-    articles[key] = 0
+    articles[key] = 0"""
 
 class articlecounts(MRJob):
 
