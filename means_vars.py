@@ -19,12 +19,11 @@ class meansvars(MRJob):
 
     def mapper(self, _, line):
         splt = line.split(",")
-        print(splt)
-        date = split.pop(0)
+        date = splt.pop(0)
         count = int(splt.pop())
         count_sq = count ** 2
         title = "\""
-        for remains in split:
+        for remains in splt:
             title = title + remains + ","
         title = title[:-1] + "\""
         yield(title, (date, count, count_sq))
