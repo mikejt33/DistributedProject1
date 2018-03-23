@@ -13,50 +13,48 @@ from datetime import date
 last_date = date(2008, 1, 3)
 
 
-
-
 class meansvars(MRJob):
 
     def mapper(self, _, line):
         splt = line.split(",")
-        date = splt.pop(0)
+        edit_date = splt.pop(0)
         count = int(splt.pop())
         count_sq = count ** 2
         title = "\""
         for remains in splt:
             title = title + remains + ","
         title = title[:-1] + "\""
-        yield(title, (date, count, count_sq))
+        yield(title, (edit_date, count, count_sq))
 
     def combiner(self, key, vals):
         total = 0
         total_sq = 0
         first_date = date(2018, 3, 22)
         for v in vals:
-            date = v[0]
+            edit_date = v[0]
             count = v[1]
             count_sq = v[2]
-            this_date = date(int(date[:4]),
-                             int(date[5:7]),
-                             int(date[8:10])
+            this_date = date(int(edit_date[:4]),
+                             int(edit_date[5:7]),
+                             int(edit_date[8:10])
                              )
             if this_date < first_date:
                 first_date = this_date
             total += count
             total_sq += count_sq
-        yield(key, (date, count, count_sq))
+        yield(key, (first_date, count, count_sq))
 
     def reducer(self, key, vals):
         total = 0
         total_sq = 0
         first_date = date(2018, 3, 22)
         for v in vals:
-            date = v[0]
+            edit_date = v[0]
             count = v[1]
             count_sq = v[2]
-            this_date = date(int(date[:4]),
-                             int(date[5:7]),
-                             int(date[8:10])
+            this_date = date(int(edit_date[:4]),
+                             int(edit_date[5:7]),
+                             int(edit_date[8:10])
                              )
             if this_date < first_date:
                 first_date = this_date
