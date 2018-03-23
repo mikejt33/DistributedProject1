@@ -17,14 +17,15 @@ class meansvars(MRJob):
 
     def mapper(self, _, line):
         splt = line.split(",")
-        edit_date = splt.pop(0)
-        count = int(splt.pop())
-        count_sq = count ** 2
-        title = "\""
-        for remains in splt:
-            title = title + remains + ","
-        title = title[:-1] + "\""
-        yield(title, (edit_date, count, count_sq))
+        if len(splt) > 0:
+            edit_date = splt.pop(0)
+            count = int(splt.pop())
+            count_sq = count ** 2
+            title = "\""
+            for remains in splt:
+                title = title + remains + ","
+            title = title[:-1] + "\""
+            yield(title, (edit_date, count, count_sq))
 
     def combiner(self, key, vals):
         total = 0
@@ -61,6 +62,7 @@ class meansvars(MRJob):
             total += count
             total_sq += count_sq
         num_days = last_date - first_date
+        num_days = num_days.days
         mean = total / num_days
         mean_sq = total_sq / num_days
         var = mean_sq - mean ** 2
