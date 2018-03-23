@@ -12,7 +12,7 @@ from mrjob.job import MRJob
 class articlecounts(MRJob):
 
     def mapper(self, _, line):
-        splt = row.split()
+        splt = line.split()
         if len(splt) > 1 and splt[0] == "REVISION":
             if splt[4][:3] == "200":
                 key = splt[4]  # The date of the edit is the key
