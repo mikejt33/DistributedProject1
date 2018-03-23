@@ -20,10 +20,13 @@ class meansvars(MRJob):
     def mapper(self, _, line):
         splt = line.split(",")
         print(splt)
-        date = splt[0]
-        title = splt[1]
-        count = int(splt[2])
-        count_sq = int(splt[2]) ** 2
+        date = split.pop(0)
+        count = int(splt.pop())
+        count_sq = count ** 2
+        title = "\""
+        for remains in split:
+            title = title + remains + ","
+        title = title[:-1] + "\""
         yield(title, (date, count, count_sq))
 
     def combiner(self, key, vals):
