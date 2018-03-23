@@ -42,7 +42,7 @@ class meansvars(MRJob):
                 first_date = this_date
             total += count
             total_sq += count_sq
-        yield(key, (first_date, count, count_sq))
+        yield(key, (str(first_date), count, count_sq))
 
     def reducer(self, key, vals):
         total = 0
