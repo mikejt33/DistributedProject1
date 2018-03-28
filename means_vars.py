@@ -9,6 +9,7 @@ Date: 03/22/2018
 
 from mrjob.job import MRJob
 from datetime import date
+import csv
 
 last_date = date(2008, 1, 3)
 
@@ -16,15 +17,13 @@ last_date = date(2008, 1, 3)
 class meansvars(MRJob):
 
     def mapper(self, _, line):
-        splt = line.split(",")
+        row = csv.reader(line.splitlines(), quotechar='"', delimiter=',')
+        splt = next(row)
         if len(splt) > 0:
-            edit_date = splt.pop(0)
-            count = int(splt.pop())
+            edit_date = splt[0]
+            count = int(splt[2])
             count_sq = count ** 2
-            title = "\""
-            for remains in splt:
-                title = title + remains + ","
-            title = title[:-1] + "\""
+            title = "\""+splt[1]+"\""
             yield(title, (edit_date, count, count_sq))
 
     def combiner(self, key, vals):
