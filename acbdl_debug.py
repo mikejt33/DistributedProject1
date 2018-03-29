@@ -1,7 +1,6 @@
 """Get article counts by day.
 
-Creates a three column file with date, articletitle, count. For cleaned up
-version of data.
+Print rows that were breaking acbdl_redo
 
 Author: Joe
 """
@@ -18,21 +17,21 @@ class articlecounts(MRJob):
                     key = splt[4]  # The date of the edit is the key
                     key = key[:10]  # Cut off time stamp
                     article = "\"" + splt[3] + "\""
-                    yield(key, article)
+                    yield(key, (article, splt))
 
     def reducer(self, key, vals):
         try:
             counts = {}
             for v in vals:
                 try:
-                    counts[str(v)] += 1
+                    counts[str(v[0])] += 1
                 except:
-                    counts[str(v)] = 1
+                    counts[str(v[0])] = 1
             for entry in counts:
                 if counts[entry] > 0:
                     out_string = str(key) + "," + str(entry) + "," + str(counts[entry])
         except:
-            print(key, v)
+            print(key, v[1])
 
 if __name__ == '__main__':
     articlecounts.run()
