@@ -9,6 +9,7 @@ Date: 03/22/2018
 
 from mrjob.job import MRJob
 import csv
+import numpy as np
 
 t_crit = {}  # Dictionary to store 95% confint critical values.
 
@@ -22,7 +23,7 @@ for line in iFile:
         title = "\"" + splt[0] + "\""
         mean = float(splt[1])
         var = float(splt[2])
-        t_crit[title] = mean + 1.96 * var
+        t_crit[title] = mean + 1.96 * np.sqrt(mean)
 
 
 class outliers(MRJob):
