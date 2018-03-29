@@ -30,7 +30,7 @@ class outliers(MRJob):
     def mapper(self, _, line):
         row = csv.reader(line.splitlines(), quotechar='"', delimiter=',')
         splt = next(row)
-        if len(splt) > 0:
+        if len(splt) > 0 and len(splt) < 4:
             edit_date = splt[0]
             count = int(splt[2])
             # csv.reader strips quotes from title, so put them back.
