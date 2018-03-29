@@ -20,8 +20,8 @@ for line in iFile:
     splt = next(row)
     if len(splt) > 0:
         title = "\"" + splt[0] + "\""
-        mean = splt[1]
-        var = splt[2]
+        mean = float(splt[1])
+        var = float(splt[2])
         t_crit[title] = mean + 1.96 * var
 
 
@@ -48,7 +48,10 @@ class outliers(MRJob):
         for v in vals:
             cutoff = t_crit[v[1]]
             if v[2] >= cutoff:
-                output = v[0] + "," + v[1] + "," + v[2]
+
+                output = v[0] + ","\
+                    + str(v[1]) + ","\
+                    + str(v[2])
                 print(output)
 
 if __name__ == '__main__':
