@@ -23,7 +23,7 @@ for line in iFile:
         title = "\"" + splt[0] + "\""
         mean = float(splt[1])
         var = float(splt[2])
-        t_crit[title] = mean + 1.96 * np.sqrt(mean)
+        t_crit[title] = mean + 1.96 * np.sqrt(mean) + 1
 
 
 class outliers(MRJob):
