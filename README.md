@@ -1,8 +1,6 @@
 # Distributed Computing Project 1
 
-## Team
-
-[Lilly](https://github.com/lillyraud), [Joe](https://github.com/joecomerisnotavailable), [Adriana](https://github.com/acastrops), [Mike](https://github.com/mikejt33), Stephanie.
+## Team: [Lilly](https://github.com/lillyraud), [Joe](https://github.com/joecomerisnotavailable), [Adriana](https://github.com/acastrops), [Mike](https://github.com/mikejt33), Stephanie.
 
 ## Introduction and Data
 
@@ -10,9 +8,7 @@
 
 **Dataset Information**
 
-+ The data contains the complete edit history (all revisions, all pages) of all Wikipedia since its inception till January 2008.
-
-+ The data set contains processed metadata for all revisions of all articles extracted from the full Wikipedia XML dump as of 2008-01-03.
+The data contains the complete edit history (all revisions, all pages) of all Wikipedia since its inception till January 2008. It  contains processed metadata for all revisions of all articles extracted from the full Wikipedia XML dump as of 2008-01-03.
 
 + For each specified namespace, there is a bzipped file with pre-processed data and also a file with all redirects. The output data is in the tagged multi-line format (14 lines per revision, space-delimited). Each revision record contains the following lines:
 
@@ -45,23 +41,58 @@ TEXTDATA 229
 [empty line]
 ```
 
-## Goal
+## Goal: Find evidende of edit wars or overall interenet bickering in Wikipedia edits.
 
-![:)](https://imgs.xkcd.com/comics/duty_calls.png)
+<p>
+An image that is a link:
+<a href="https://imgs.xkcd.com/comics/duty_calls.png">
+<img src="duty_calls.png" alt=":)" width="42" height="42" border="0">
+</a>
+</p>
 
-Find evidende of edit wars or overall interenet bickering in Wikipedia edits.
+<p align="center">
+  <img src="https://imgs.xkcd.com/comics/duty_calls.png" alt=":)" />
+</p>
 
 ## Plan
 
+1. Extract Data 
+  - 
+  
+2. Clean
+  -
+  
+3. Create two datasets
+  - Superset 
+  - Outliers
+  
+4. Compute summary statistics
+  - \# of unique users
+  - \# of comments
+  - Edit war flag
+  
+5. Pick main article to tell story
+  - 
+
+6. Draw comparisons between two groups
+  - Using the statistics computed above, we compare the two datasets.
+  
+7. Results
+  - Our evidence for edit wars according to our assumptions
+  - Visualizations
+      * Choropleth
+
 ### Steps Taken
 
-* Initially took a look at top 10,000 lines from the unzipped data (bash);
+Initially took a look at top 10,000 lines from the unzipped data (bash);
 
+```
 $ bzcat enwiki-20080103.main.bz2 | head -10000 > output.txt
+```
 
 From the output. txt file was able to determine next step:
 
-* Get list of all articles and number of times each was revised;
+Get list of all articles and number of times each was revised;
 
 run revision_count.py, from that list, compiled:
 
@@ -69,7 +100,7 @@ run revision_count.py, from that list, compiled:
 
 * new mapreduce, created date, article pair with number of revisions (acbdl_redo.py), creating as complete list as the data allowed - articles_dates.csv
 
-### * Joe explains how he created outliers.txt
+### Joe explains how he created outliers.txt:
 
 * Picked 67 unique articles with a specific date from outliers.txt to look at, to see if any appears to be edit-wars
 
