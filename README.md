@@ -1,11 +1,59 @@
 # Distributed Computing Project 1
-## April 10, 2018
+
+## Team
+
+[Lilly](https://github.com/lillyraud), [Joe](https://github.com/joecomerisnotavailable), [Adriana](https://github.com/acastrops), [Mike](https://github.com/mikejt33), Stephanie.
 
 ## Introduction and Data
 
-(data)
+[Complete Wikipedia edit history (up to January 2008)](http://snap.stanford.edu/data/wiki-meta.html)
 
-## Steps Taken
+**Dataset Information**
+
++ The data contains the complete edit history (all revisions, all pages) of all Wikipedia since its inception till January 2008.
+
++ The data set contains processed metadata for all revisions of all articles extracted from the full Wikipedia XML dump as of 2008-01-03.
+
++ For each specified namespace, there is a bzipped file with pre-processed data and also a file with all redirects. The output data is in the tagged multi-line format (14 lines per revision, space-delimited). Each revision record contains the following lines:
+
+- `REVISION` article_id rev_id article_title timestamp [ip:]username user_id
+- `CATEGORY` list of categories
+- `IMAGE` list of images (each listed as many times as it occurs)
+- `MAIN` through OTHER cross-references to pages in other namespaces
+- `EXTERNAL` hyperlinks to pages outside Wikipedia
+- `TEMPLATE` list of all templates (each listed as many times as it occurs)
+- `COMMENT` contains the comments as entered by the author
+- `MINOR` whether the edit was marked as minor by the author
+- `TEXTDATA` word count of revision's plain text
+
+For example:
+
+```
+REVISION 4781981 72390319 Steven_Strogatz 2006-08-28T14:11:16Z SmackBot 433328
+CATEGORY American_mathematicians
+IMAGE
+MAIN Boston_University MIT Harvard_University Cornell_University
+TALK
+USER
+USER_TALK
+OTHER De:Steven_Strogatz Es:Steven_Strogatz
+EXTERNAL http://www.edge.org/3rd_culture/bios/strogatz.html
+TEMPLATE Cite_book Cite_book Cite_journal
+COMMENT ISBN formatting &/or general fixes using [[WP:AWB|AWB]]
+MINOR 1
+TEXTDATA 229
+[empty line]
+```
+
+## Goal
+
+![:)](https://imgs.xkcd.com/comics/duty_calls.png)
+
+Find evidende of edit wars or overall interenet bickering in Wikipedia edits.
+
+## Plan
+
+### Steps Taken
 
 * Initially took a look at top 10,000 lines from the unzipped data (bash);
 
@@ -21,11 +69,11 @@ run revision_count.py, from that list, compiled:
 
 * new mapreduce, created date, article pair with number of revisions (acbdl_redo.py), creating as complete list as the data allowed - articles_dates.csv
 
-## * Joe explains how he created outliers.txt
+### * Joe explains how he created outliers.txt
 
-* picked 67 unique articles with a specific date from outliers.txt to look at, to see if any appears to be edit-wars
+* Picked 67 unique articles with a specific date from outliers.txt to look at, to see if any appears to be edit-wars
 
-* excluding the 67 unique articles from the articles_dates.csv, picked randomly another 67 articles with at least 10 edits on a single day, using mapreduce (mrjob_RandomArticle.py) and SQL 
+* Excluding the 67 unique articles from the articles_dates.csv, picked randomly another 67 articles with at least 10 edits on a single day, using mapreduce (mrjob_RandomArticle.py) and SQL 
 
 First query created a input file for mrjob_RandomArticle.py
 
