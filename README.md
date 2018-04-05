@@ -10,7 +10,7 @@
 
 The data contains the complete edit history (all revisions, all pages) of all Wikipedia since its inception till January 2008. It  contains processed metadata for all revisions of all articles extracted from the full Wikipedia XML dump as of 2008-01-03.
 
-+ For each specified namespace, there is a bzipped file with pre-processed data and also a file with all redirects. The output data is in the tagged multi-line format (14 lines per revision, space-delimited). Each revision record contains the following lines:
+For each specified namespace, there is a bzipped file with pre-processed data and also a file with all redirects. The output data is in the tagged multi-line format (14 lines per revision, space-delimited). Each revision record contains the following lines:
 
 - `REVISION` article_id rev_id article_title timestamp [ip:]username user_id
 - `CATEGORY` list of categories
@@ -43,46 +43,33 @@ TEXTDATA 229
 
 ## Goal: Find evidende of edit wars or overall interenet bickering in Wikipedia edits.
 
-<p>
-An image that is a link:
-<a href="https://imgs.xkcd.com/comics/duty_calls.png">
-<img src="duty_calls.png" alt=":)" width="42" height="42" border="0">
-</a>
-</p>
-
 <p align="center">
   <img src="https://imgs.xkcd.com/comics/duty_calls.png" alt=":)" />
 </p>
 
 ## Plan
 
-1. Extract Data 
-  - 
-  
-2. Clean
+### 1. Extract and Clean
   -
   
-3. Create two datasets
+### 2. Create two datasets
   - Superset 
   - Outliers
   
-4. Compute summary statistics
+### 3. Compute summary statistics
   - \# of unique users
   - \# of comments
   - Edit war flag
   
-5. Pick main article to tell story
-  - 
-
-6. Draw comparisons between two groups
+### 4. Draw comparisons between two groups
   - Using the statistics computed above, we compare the two datasets.
   
-7. Results
+### 5. Results
   - Our evidence for edit wars according to our assumptions
   - Visualizations
       * Choropleth
 
-### Steps Taken
+## Breakdown of steps Taken
 
 Initially took a look at top 10,000 lines from the unzipped data (bash);
 
@@ -94,19 +81,19 @@ From the output. txt file was able to determine next step:
 
 Get list of all articles and number of times each was revised;
 
-run revision_count.py, from that list, compiled:
+run `revision_count.py`, from that list, compiled:
 
 * top 1000 most revised articles;
 
-* new mapreduce, created date, article pair with number of revisions (acbdl_redo.py), creating as complete list as the data allowed - articles_dates.csv
+* new mapreduce, created date, article pair with number of revisions (`acbdl_redo.py`), creating as complete list as the data allowed - `articles_dates.csv`
 
 ### Joe explains how he created outliers.txt:
 
 * Picked 67 unique articles with a specific date from outliers.txt to look at, to see if any appears to be edit-wars
 
-* Excluding the 67 unique articles from the articles_dates.csv, picked randomly another 67 articles with at least 10 edits on a single day, using mapreduce (mrjob_RandomArticle.py) and SQL 
+* Excluding the 67 unique articles from the `articles_dates.csv`, picked randomly another 67 articles with at least 10 edits on a single day, using mapreduce (`mrjob_RandomArticle.py`) and `SQL` 
 
-First query created a input file for mrjob_RandomArticle.py
+First query created a input file for `mrjob_RandomArticle.py`
 
 ``` SQL
 SELECT * FROM articles_dates
