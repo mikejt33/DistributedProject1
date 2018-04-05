@@ -1,6 +1,6 @@
 # Distributed Computing Project 1
 
-## Team: [Lilly](https://github.com/lillyraud), [Joe](https://github.com/joecomerisnotavailable), [Adriana](https://github.com/acastrops), [Mike](https://github.com/mikejt33), Stephanie.
+## Team: [Lilly](https://github.com/lillyraud), [Joe](https://github.com/joecomerisnotavailable), [Adriana](https://github.com/acastrops), [Mike](https://github.com/mikejt33), [Stephanie](https://github.com/srive).
 
 ## Introduction and Data
 
@@ -50,7 +50,7 @@ TEXTDATA 229
 ## Plan
 
 ### 1. Extract and Clean
-  -
+  - MRJob: 
   
 ### 2. Create two datasets
   - Superset 
@@ -67,33 +67,27 @@ TEXTDATA 229
 ### 5. Results
   - Our evidence for edit wars according to our assumptions
   - Visualizations
-      * Choropleth
+      * Basic vizes for summary statistics
+      * Choropleth of user ip address
 
-## Breakdown of steps Taken
+## Breakdown of steps taken
 
-Initially took a look at top 10,000 lines from the unzipped data (bash);
+
+### 1. Munging
+
+Initially took a look at top 10,000 lines from the unzipped data (bash). This command was adapted from one of the two you can find at the end of the page of the data documentation:
 
 ```
 $ bzcat enwiki-20080103.main.bz2 | head -10000 > output.txt
 ```
 
-From the output. txt file was able to determine next step:
+After getting `output.txt` we were able to have a better idea of what the data looked like and started exploring possible avenues for exploration. We decided to get a list of all articles and number of times each was revised. We wrote a Pyhon script to do this; run `revision_count.py`, from that list. 
 
-Get list of all articles and number of times each was revised;
+This gave us the Top 1000 most revised articles. From here, we created a new MapReduce file that pulled pairs of created date with number of revisions (`acbdl_redo.py`). Some records were not able to be processed for whatever reason so we skipped those :) the most complete list can be found in `articles_dates.csv`. 
 
-run `revision_count.py`, from that list, compiled:
+### 2. Creating Outliers and Superset
 
-* top 1000 most revised articles;
-
-* new mapreduce, created date, article pair with number of revisions (`acbdl_redo.py`), creating as complete list as the data allowed - `articles_dates.csv`
-
-### Joe explains how he created outliers.txt:
-
-* Picked 67 unique articles with a specific date from outliers.txt to look at, to see if any appears to be edit-wars
-
-* Excluding the 67 unique articles from the `articles_dates.csv`, picked randomly another 67 articles with at least 10 edits on a single day, using mapreduce (`mrjob_RandomArticle.py`) and `SQL` 
-
-First query created a input file for `mrjob_RandomArticle.py`
+Picked 67 unique articles with a specific date from outliers.txt to look at, to see if any appears to be edit-wars. We excluded the 67 unique articles from the `articles_dates.csv` and randomly picked 67 more articles with at least 10 edits on a single day, using mapreduce (`mrjob_RandomArticle.py`) and **SQL**. First query created a input file for `mrjob_RandomArticle.py`
 
 ``` SQL
 SELECT * FROM articles_dates
@@ -103,87 +97,38 @@ WHERE NAME NOT IN (
 'Anarchism',
 'Anarcho-capitalism',
 'Ark_of_the_Covenant',
-'Arsenal_F.C.',
-'Autism',
-'Batman_(1989_film)',
-'Bipolar_disorder',
-'Black_hole',
-'Black_people',
-'Blaise_Pascal',
-'Blitzkrieg',
-'Blue_Angels',
-'Blue_whale',
-'Britney_Spears',
-'Caffeine',
-'Capitalism',
-'Cat',
-'Chicago_White_Sox',
-'Christmas',
-'Christopher_Columbus',
-'Claudius',
-'Color_Temperature',
-'Comet_Shoemaker-Levy_9',
-'Condom',
-'Cyberpunk',
-'Deaths_in_2003',
-'Diamond',
-'Dianetics',
-'Doctor_Who',
-'Drum_and_bass',
-'Eight_queens_puzzle',
-'Fermi_paradox',
-'Freemasonry',
-'Fundamental_Dimensions',
-'Game_theory',
-'Glycerine',
-'Henry_Ford',
-'History_of_China',
-'History_of_Russia',
-'Human',
-'Intelligent_design',
-'Jim_Morrison',
-'Kilogram',
-'Loch_Ness_Monster',
-'March_1',
-'Mathematical_economics',
-'Nikola_Tesla',
-'October_2003',
-"People's_Republic_of_China",
-'Pit_Bull',
-'Scriptures',
-'The_Ashes',
-'The_Cure',
-'Wikipedia_bugs',
-'World_Trade_Center/Plane_crash',
-'Down_syndrome',
-'Donald_Rumsfeld',
-"Barnard's_Star",
-'DNA',
-'Augusto_Pinochet',
-'Cane_Toad',
+(...)
 'Astrology',
 'Dinosaur',
 'Abortion'
 ) AND COUNT >9
 GROUP BY NAME;
 ```
-after Mapreduce produced the random list, created a temp table:
+After Mapreduce produced the random list, we created a temporary table:
 
 ``` SQL
 CREATE TABLE temp_list
 SELECT DATE, NAME, COUNT FROM articles_dates
 WHERE NAME IN 
 (
-"Kangaroo","Warmia","Astronaut","Group_sex","Laura_Bush","Lagrange_equations","Astronomical_unit","Abner_Doubleday","Federal_Bureau_of_Investigation","AutoCAD","Antarctic_Treaty_System","Amoeba","Alabama","Elliptic_integral","Apollo_11","Benelux","Functional_programming","Series_(mathematics)",
-"Methylenedioxymethamphetamine","Detroit_Red_Wings","Big_bang","Connective","Psychedelic","Albinism","December_10","Racism","F-117_Nighthawk","Cauchy_sequence","Aston_Martin",
-"Rochester_Institute_of_Technology","Atari_2600","History_of_Germany","Cable_car_(railway)","Commodore_64","Andrew_S._Tanenbaum","Ampere","Chiba_Prefecture",
-"Diocletian","London_Heathrow_Airport","AppleTalk","German_cuisine","Edgar_Rice_Burroughs","Cathode","List_of_Latin_phrases","Esperanto_grammar",
-"Architectural_style","Demon","DC_Comics","December_25","Albert_Einstein","Background_radiation","Impressionism","Interlingua","Afghan","Bach_(disambiguation)","Opera_(browser)",
-"Inca_Empire","Nudity","Joseph_Conrad","Berlin","Battle_of_Stalingrad","Bestiality","Eastern_Orthodox_Church","Argument_from_evolution","Diesel_engine",
-"Anaximander","Brigitte_Bardot")  AND COUNT >9
+"Kangaroo","Warmia","Astronaut","Group_sex","Laura_Bush","Lagrange_equations","Astronomical_unit","Abner_Doubleday",
+"Federal_Bureau_of_Investigation","AutoCAD","Antarctic_Treaty_System","Amoeba","Alabama","Elliptic_integral","Apollo_11",
+"Benelux","Functional_programming","Series_(mathematics)",  "Methylenedioxymethamphetamine","Detroit_Red_Wings","Big_bang","Connective","Psychedelic","Albinism","December_10","Racism",
+"F-117_Nighthawk","Cauchy_sequence","Aston_Martin", 
+"Rochester_Institute_of_Technology","Atari_2600","History_of_Germany","Cable_car_(railway)","Commodore_64",
+"Andrew_S._Tanenbaum","Ampere","Chiba_Prefecture",
+"Diocletian","London_Heathrow_Airport","AppleTalk","German_cuisine","Edgar_Rice_Burroughs","Cathode","List_of_Latin_phrases",
+"Esperanto_grammar",
+"Architectural_style","Demon","DC_Comics","December_25","Albert_Einstein","Background_radiation","Impressionism","Interlingua",
+"Afghan","Bach_(disambiguation)","Opera_(browser)",
+"Inca_Empire","Nudity","Joseph_Conrad","Berlin","Battle_of_Stalingrad","Bestiality","Eastern_Orthodox_Church",
+"Argument_from_evolution","Diesel_engine",
+"Anaximander","Brigitte_Bardot"
+)  
+AND COUNT >9
 ```
 
-and from that temp table, selected the highest count edited day for the random group:
+From this temp table, we selected the highest count edited day for the random group:
 
 ``` sql
 SELECT * 
@@ -191,4 +136,9 @@ FROM (SELECT * FROM temp_list ORDER BY `Name`, COUNT DESC, DATE) X
 GROUP BY `Name`;
 ```
 
+### 3. Computing summary statistics for both groups
+
+### 4. Comparisons
+
+### 5. Results
 
