@@ -39,7 +39,7 @@ run revision_count.py, from that list, compiled:
 
 * excluding the 67 unique articles from the articles_dates.csv, picked randomly another 67 articles with at least 10 edits on a single day, using mapreduce (mrjob_RandomArticle.py) and SQL 
 
-First query created a input file for mrjob_RandomArticle.py
+First query created a input file (names.csv) for mrjob_RandomArticle.py
 
 SELECT * FROM articles_dates
 WHERE NAME NOT IN (
