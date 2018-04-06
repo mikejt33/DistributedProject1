@@ -5,15 +5,21 @@ Created on Fri Apr  6 17:35:04 2018
 
 @author: Mike
 """
+import csv
 
-inFile = open("actually_cleaned_random_data_of_interest.csv")
-outFile = open("Intelligent_Design_articles.csv")
+inFile = open("actually_cleaned_random_data_of_interest.csv","r+",encoding="utf-8")
+outFile = open("Intelligent_Design_articles.csv","w+")
 
-for line in inFile:
-    output = ""
-    splt = line.split("Ϭ")
+
+output = []
     
-    if splt[0] == "Intelligent_design":
-        output = splt
+for line in inFile:
+    splt = line.split("Ϭ")
+    for first in splt:
+        if first == "Intelligent_design":
+            output.append(splt)
+
         
-outFile.write(output)
+with open("Intelligent_Design_articles.csv","w") as f:
+    writer = csv.writer(f)
+    writer.writerows(output)
