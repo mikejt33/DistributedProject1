@@ -1,0 +1,68 @@
+---
+title: "Article Name"
+author: Lilly, Joe, Adriana, Mike, Stephanie
+date: April 10, 2018
+output:
+  revealjs::revealjs_presentation:
+    theme: blood
+    center: true
+    transition: slide
+    reveal_options:
+    slideNumber: true
+    previewLinks: true
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(revealjs)
+```
+
+# Data
+
+## Superset
+
+- Title/date pairs + fields
+- 67 of them
+
+## Outliers
+
+- Title/date pairs + fields
+- 67 of them
+
+# Tools
+
+## Munging
+
+- Python's MRJob
+
+## Visualizations
+
+- Plotly
+- RStudio
+- SQL
+
+# Statistics
+
+## Number of comments
+
+- Assumption
+- How it was collected
+- Goal
+
+## Number of unique users
+
+- Assumption
+- How it was collected
+- Goal
+
+## Bickering Flag
+
+- Assumption
+- Result
+
+# Visualizations
+
+## Summary Statistics
+
+## Choropleth
+

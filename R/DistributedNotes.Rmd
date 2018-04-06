@@ -1,6 +1,6 @@
 ---
 title: "Distribute Project Notes"
-author: "Lilianne Raud"
+author: "Lilly, Adriana, Joe, Mike, Stephanie"
 date: "March 11, 2018"
 output:
   html_document: default
