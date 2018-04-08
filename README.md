@@ -50,7 +50,6 @@ TEXTDATA 229
 ## Plan
 
 ### 1. Extract and Clean
-  - MRJob: 
   
 ### 2. Create two datasets
   - **Superset:** Output of our first MR job (`abcds`*****) with a list of every article's date and number of edits for that date. 
