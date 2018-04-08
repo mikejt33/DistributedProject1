@@ -58,11 +58,10 @@ TEXTDATA 229
   - **Random:** From the rest, excluding the previous 67 articles, we radomly picked another 67 articles. We also did not consier anything with less than 9 edits.
 
   
-### 3. Compute summary statistics
-  - \# of unique users
-  - \# of comments
-  - Edit war flag
-  
+### 3. Compute summary statistics for Outliers
+  - Bickering flag
+  - Vandalism flag
+
 ### 4. Draw comparisons between two groups
   - Using the statistics computed above, we compare the two datasets.
   
@@ -139,6 +138,14 @@ GROUP BY `Name`;
 ```
 
 ### 3. Computing summary statistics for both groups
+
+- Bickering flag
+    * 
+
+
+- Vandalism flag
+    * Selected records with the word "vandalism" in the comments. One of the reasons for editing is vandalism, where an edit is tagged with "vandalism"" by another user due to trolling. Our assumption is that these rows are edits that reverted vandalism. 
+
 
 ### 4. Comparisons
 

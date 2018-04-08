@@ -4,7 +4,7 @@ author: Lilly, Joe, Adriana, Mike, Stephanie
 date: April 10, 2018
 output:
   revealjs::revealjs_presentation:
-    theme: blood
+    theme: night
     center: true
     transition: slide
     reveal_options:
@@ -113,16 +113,16 @@ Intelligent Design Article
 ```{r }
 ggplot(df_pie, aes(x = "", y = Freq, fill = subject)) + geom_bar(width =1, stat ="identity")
 
-pie <- ggplot(df_pie.percent, aes(x = "", y = Freq, fill = subject.percent)) + 
+ggplot(df_pie.percent, aes(x = "", y = Freq, fill = subject.percent)) + 
   geom_bar(width =1, stat = "identity") + 
   coord_polar(theta = "y", start =0) +
   labs(x ="", y ="", title = "Breakdown of Edits made to Different Dubjects of Intelligent Design wiki \n", fill = "Subjects")+
   ggsave("ID.subject.pie.chart.png") +
-
-pie <- pie +
   theme(
-        rect = element_rect(fill = "transparent") # all rectangles
-      )
+    rect = element_rect(fill = "transparent") # all rectangles
+  )
+
+
 ```
 
 ## Choropleth

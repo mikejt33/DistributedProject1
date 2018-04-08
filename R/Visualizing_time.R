@@ -15,10 +15,7 @@ df <- df %>%
 
 df$bins <- bin_data(df$breaker, bins=c(0, 4,9, 14, 20, 24), boundaryType = "[lorc")
 
-###
-
 plot(df$bins, main = "Frequency")
-
 
 ggplot(df, aes(df$breaker, fill = bins)) + geom_histogram(binwidth = 4) 
 
