@@ -53,8 +53,10 @@ TEXTDATA 229
   - MRJob: 
   
 ### 2. Create two datasets
-  - Superset 
-  - Outliers
+  - **Superset:** Output of our first MR job (`abcds`*****) with a list of every article's date and number of edits for that date. 
+  - **Outliers:** From the Superset, we calculated the mean number of edits per day for each article. Then, assuming that edits by day are a Poisson distribution, we selected only the article date pairs that had the top 5\% edits for that day, for that article. From the top 5\% we picked 67 articles.
+  - **Random:** From the rest, excluding the previous 67 articles, we radomly picked another 67 articles. We also did not consier anything with less than 9 edits.
+
   
 ### 3. Compute summary statistics
   - \# of unique users
@@ -81,9 +83,9 @@ Initially took a look at top 10,000 lines from the unzipped data (bash). This co
 $ bzcat enwiki-20080103.main.bz2 | head -10000 > output.txt
 ```
 
-After getting `output.txt` we were able to have a better idea of what the data looked like and started exploring possible avenues for exploration. We decided to get a list of all articles and number of times each was revised. We wrote a Pyhon script to do this; run `revision_count.py`, from that list. 
+After getting `output.txt` we were able to have a better idea of what the data looked like and started defining possible avenues for exploration. We got a list of all articles and number of times each was revised from that list (Pyhon script to do this: `revision_count.py`). 
 
-This gave us the Top 1000 most revised articles. From here, we created a new MapReduce file that pulled pairs of created date with number of revisions (`acbdl_redo.py`). Some records were not able to be processed for whatever reason so we skipped those :) the most complete list can be found in `articles_dates.csv`. 
+This gave us the Top 1000 most revised articles. From here, we created a new MapReduce file that pulled pairs of dates with number of revisions (`acbdl_redo.py` creates Superset). Some records were not able to be processed for whatever reason so we skipped those :) the most complete list can be found in `articles_dates.csv`. 
 
 ### 2. Creating Outliers and Superset
 
