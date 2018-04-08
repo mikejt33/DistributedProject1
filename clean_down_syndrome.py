@@ -8,6 +8,7 @@ Created on Sun Apr  8 15:33:40 2018
 
 #  0 - outlier  1 - random
 import csv
+import pandas as pd
 
 inFile = open("actually_cleaned_random_data_of_interest.csv","r+",encoding="utf-8")
 outFile = open("Down_syndrome_articles.csv","w+")
@@ -21,7 +22,7 @@ for line in inFile:
         if first == "Down_syndrome":
             output.append(splt)
 
-        
-with open("Down_syndrome_articles.csv","w") as f:
-    writer = csv.writer(f)
-    writer.writerows(output)
+df = pd.DataFrame(output)
+
+df.to_csv('Down_syndrome_articles.csv',index = False, header = False)
+
