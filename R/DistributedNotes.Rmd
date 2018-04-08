@@ -13,10 +13,6 @@ knitr::opts_chunk$set(echo = TRUE)
 
 ## Introduction and Data
 
-```{r}
-
-```
-
 ## Steps Taken
 
 * Initially took a look at top 10,000 lines from the unzipped data (bash);
