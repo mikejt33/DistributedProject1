@@ -1,6 +1,6 @@
 ---
-title: "Article Name"
-author: Lilly, Joe, Adriana, Mike, Stephanie
+title: "<huge> Edit Wars </huge> <br> <small> When Stars and Condoms Collide </small>"
+author: "<small> Lilly, Joe, Adriana, Mike, Stephanie </small>"
 date: April 10, 2018
 output:
   revealjs::revealjs_presentation:
@@ -13,21 +13,38 @@ output:
 ---
 
 ```{r setup, include=FALSE}
+#Packages
 knitr::opts_chunk$set(echo = TRUE)
 library(revealjs)
 library(tidyverse)
+
+#Loading data
+raw.txt <- "REVISION 12 122974 Anarchism 2002-07-23T01:12:22Z Brion_VIBBER 51
+CATEGORY IMAGE MAIN Syndicalism Nihilism Gustave_de_Molinari Benjamin_Tucker
+Benjamin_Tucker Noam_Chomsky Peter_Kropotkin Leo_Tolstoy Leo_Tolstoy
+Classical_liberalism Individualist_anarchism Individualist_anarchism
+Individualist_anarchism Individualist_anarchism Libertarianism Libertarianism
+Anomie Anomie Mutual_aid Mutual_aid General_strike Atheism Free_Spirit
+Libertarian_socialism Libertarian_socialism Libertarian_socialism
+Lysander_Spooner Capitalism Mikhail_Bakunin Self-defense Political Minarchism
+Punk_rock William_McKinley Anarcho-syndicalists Karl_Marx Anarchism/Todo
+Coercion John_Locke Anarcho-capitalism Anarcho-capitalism Anarcho-capitalism
+Anarcho-capitalism Regicide Government Michael_Bakunin Property_damage
+Max_Stirner Rudolph_Rocker Peter_Kroptkin Non-violent_resistance Proudhon
+David_Friedman Voltairine_de_Cleyre TALK USER USER_TALK OTHER Pl:Anarchizm
+Fr:Anarchisme Eo:Anarkismo EXTERNAL TEMPLATE COMMENT lang links: +fr, pl
+MINOR 1 TEXTDATA 1169"
 ```
 
 <!-- -------------------------------- -->
 
-# Data
+# Introduction
+
+## Data
 
 ```{r raw data}
-head(mtcars)
+cat(raw.txt)
 ```
-
-
-## Introduction
 
 ## Datasets
 
@@ -45,7 +62,10 @@ head(mtcars)
 - How it was collected
 - Goal
 
-## Bickering and Vandalism Flags
+## Bickering and Vandalism 
+
+
+
 
 <!-- -------------------------------- -->
 
