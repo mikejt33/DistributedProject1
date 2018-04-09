@@ -16,114 +16,40 @@ output:
 knitr::opts_chunk$set(echo = TRUE)
 library(revealjs)
 library(tidyverse)
-library(mltools)
-
-# Pie chart 
-data_pie_chart <- read.csv("intelligent_design_subjects.csv", strip.white = TRUE)
-colnames(data_pie_chart) <- "subject"
-data_pie_chart$count <- rep(1,nrow(data_pie_chart))
-d_pie <- table(data_pie_chart)
-df_pie <- data.frame(d_pie)
-
-df_pie <- df_pie %>%
-  select(subject,Freq) %>%
-  filter(Freq > 1)
-
-df_pie.percent <- df_pie %>%
-  mutate(subject =subject,
-         cumulatve = cumsum(Freq),
-         midpoint = cumulatve - Freq /2,
-         labels = paste0(round((Freq/sum(Freq))*100,1),"%"))
-
-df_pie.percent$subject.percent <- with(df_pie.percent, paste0(subject, " ",labels))
-
-
-# Visualizing time graphs
-data_time <- read.csv("Intelligent_Design_articles.csv")
-colnames(data_time) <- c("Design", "time", "name","ip", "comment","na")
-time <- data_time$time
-df_time <- data.frame(substr(time,12,16))
-df_time <- df_time %>%
-  mutate(id = row_number())
-colnames(df_time) <- c("time","id")
-
-df_time <- df_time %>%
-  mutate(breaker = as.integer(substr(time,1,2)))
-
-
-df_time$bins <- bin_data(df_time$breaker, bins=c(0, 4,9, 14, 20, 24), boundaryType = "[lorc")
 ```
+
+<!-- -------------------------------- -->
 
 # Data
 
-## Superset
+```{r raw data}
+head(mtcars)
+```
 
-- Title/date pairs + fields
-- 67 of them
 
-## Outliers
+## Introduction
 
-- Title/date pairs + fields
-- 67 of them
+## Datasets
 
-# Tools
+- Superset
+- Outliers
+- Random
 
-## Munging
-
-- Python's MRJob
-
-## Visualizations
-
-- Plotly
-- RStudio
-- SQL
+<!-- -------------------------------- -->
 
 # Statistics
 
-## Number of comments
+## Number of comments and unique users
 
 - Assumption
 - How it was collected
 - Goal
 
-## Number of unique users
+## Bickering and Vandalism Flags
 
-- Assumption
-- How it was collected
-- Goal
-
-## Bickering Flag
-
-- Assumption
-- Result
-
-# Visualizations
-
-## Notable Findings
-
-Intelligent Design Article
-
-+ Spike in edits on December 21, 2005
-+ On December 20, 2005, US court banned the teaching of Intelligent Design in public schools.
-+ [Kitzmiller v. Dover Area School District]([0[[]]])
-+ Most likely this spike in edits is due to this ruling the day before
-
-## Pie Chart
-
-```{r }
-ggplot(df_pie, aes(x = "", y = Freq, fill = subject)) + geom_bar(width =1, stat ="identity")
-
-ggplot(df_pie.percent, aes(x = "", y = Freq, fill = subject.percent)) + 
-  geom_bar(width =1, stat = "identity") + 
-  coord_polar(theta = "y", start =0) +
-  labs(x ="", y ="", title = "Breakdown of Edits made to Different Dubjects of Intelligent Design wiki \n", fill = "Subjects")+
-  ggsave("ID.subject.pie.chart.png") +
-  theme(
-    rect = element_rect(fill = "transparent") # all rectangles
-  )
+<!-- -------------------------------- -->
 
 
-```
 
-## Choropleth
+
 
