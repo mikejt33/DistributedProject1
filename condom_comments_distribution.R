@@ -16,13 +16,8 @@ df <- df %>%
 df$bins <- bin_data(df$breaker, bins=c(0, 4,9, 14, 20, 24), boundaryType = "[lorc")
 
 #plot(df$bins, main = "Frequency")
-
 #ggplot(df, aes(df$breaker, fill = bins)) + geom_histogram(binwidth = 4) 
-
-
 #ggplot(df, aes(x=bins)) + geom_histogram(aes(y = ..count../sum(..count..)))
-
-
 
 ggplot(data = df, aes(x = df$bins, fill = bins))+
   geom_bar() + 

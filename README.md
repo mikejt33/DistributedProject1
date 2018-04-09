@@ -54,7 +54,7 @@ TEXTDATA 229
 ### 2. Create two datasets
   - **Superset:** Output of our first MR job (`abcdl_redo.py`) with a list of every article's date and number of edits for that date. 
   - **Outliers:** From the Superset, we calculated the mean number of edits per day for each article. Then, assuming that edits by day are a Poisson distribution, we selected only the article date pairs that had the top 5\% edits for that day, for that article. From the top 5\% we picked 67 articles.
-  - **Random:** From the rest, excluding the previous 67 articles, we radomly picked another 67 articles. We also did not consier anything with less than 9 edits.
+  - **Random:** From the rest, excluding the previous 67 articles, we radomly picked another 67 articles. We also did not consider anything with less than 9 edits.
 
   
 ### 3. Compute summary statistics for Outliers
@@ -62,6 +62,8 @@ TEXTDATA 229
   - Vandalism flag
 
 ### 4. Condoms and Stars
+
+We decided to further investigate the Barnard’s Star and Condom articles based our generated statistics combined with visual inspection of the comments section in our attempt to find articles that experienced an unusual amount of edits and have a compelling back and forth banter in the comments section.
 
   
 ### 5. Comparison and Results
@@ -141,6 +143,15 @@ GROUP BY `Name`;
 
 ### 4. Condoms and Stars
 
+Barnard’s Star was the wikipedia “article of the day” when it saw its spike in edits. We attribute the spike in edits to be due to the people “trolling” this article due to its unexpected exposure as being selected as the article of the day on October 18, 2007.
+
+https://en.wikipedia.org/wiki/Wikipedia:Today%27s_featured_article/October_18,_2007
+
+The condom article saw its spike in edits on December 26, 2005. This occurred one day after the Catholic Church released a statement stating that “Safe sex” in regards to sexual activity using condoms is not actually safe.
+
+https://catholicnews.sg/index.php?option=com_content&view=article&id=709:e2809csafe-sexe2809d-is-not-really-safe&catid=140:december-2005&Itemid=473&lang=en
+
+We believe this statement ignited the extensive editing that this article experienced.
 
 
 ### 5. Comparisons and results 
