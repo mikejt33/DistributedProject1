@@ -25,13 +25,14 @@
 06:59:41Z	Chooserr	/* Prevalence of condoms */ removed section on purchasing condoms for it doesn't belong in this particular section 	
 07:45:48Z	Chooserr	please stop vandalising wikipedia 
 
-08:39:01Z	SarekOfVulcan	[[WP:AWB|Assisted]] Date cleanup 
+
+
+
 08:42:42Z	Locke_Cole	/* Proper use */ restoring proper use section 
 08:46:10Z	Chooserr	this was already voted on, bring it up on the talk page before making edits like tht 
 08:51:07Z	Locke_Cole	rvt 
 08:57:40Z	Chooserr	rvt it was agreed on 
 10:35:47Z	FCYTravis	/* Condoms & the Environment */ Stupid. You might as well add such a section to [[McDonalds]] or [[Hamburger]] or [[Soda]]. 
-10:41:46Z	FCYTravis	
 10:43:10Z	FCYTravis	/* Environmental impact */ 
 16:29:56Z	ip:63.22.0.39	rvt 
 16:36:26Z	Locke_Cole	rvt - rewrite was better 
