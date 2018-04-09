@@ -17,6 +17,9 @@ output:
 knitr::opts_chunk$set(echo = TRUE)
 library(revealjs)
 library(tidyverse)
+library(readr)
+library(pander)
+
 
 #Loading data
 raw.txt <- "REVISION 12 122974 Anarchism 2002-07-23T01:12:22Z Brion_VIBBER 51
@@ -34,6 +37,8 @@ Max_Stirner Rudolph_Rocker Peter_Kroptkin Non-violent_resistance Proudhon
 David_Friedman Voltairine_de_Cleyre TALK USER USER_TALK OTHER Pl:Anarchizm
 Fr:Anarchisme Eo:Anarkismo EXTERNAL TEMPLATE COMMENT lang links: +fr, pl
 MINOR 1 TEXTDATA 1169"
+
+top1000_revisions_in_a_day <- read_csv("C:/Users/User/Google Drive/Distributed Computing/DistributedProject1.git/Outputs/top1000 revisions in a day.csv")
 ```
 
 <!-- -------------------------------- -->
@@ -42,19 +47,62 @@ MINOR 1 TEXTDATA 1169"
 
 ## Data
 
+Complete edit history of all Wikipedia utill January 2008.
+
+<ul style="list-style-type:square">
+  <li> `REVISION` ***</li>
+  <li> `CATEGORY` </li>
+  <li> `IMAGE`</li>
+  <li> `MAIN` </li>
+  <li> `EXTERNAL` </li>
+  <li> `TEMPLATE` </li>
+  <li> `COMMENT` *** </li>
+  <li> `MINOR` </li>
+  <li> `TEXTDATA` </li>
+</ul>
+
+## Our project
+
+<ol>
+  <li>Edit Wars?</li>
+  <li>How we found them</li>
+  <li>A closer look into the articles for *Barnard's Star* and *Condoms*</li>
+</ol>
+
+
+# What are edit wars and how to find them?
+
+## Munging
+
 ```{r raw data}
 cat(raw.txt)
 ```
 
+## Making sense of the data
+
+```{r}
+pandoc.table(head(top1000_revisions_in_a_day[,1:3], 6), justify = 'right')
+```
+
+
 ## Datasets
 
-- Superset
-- Outliers
-- Random
+- *Superset*
+    * A list of every article's date and number of edits for that date.
+    
+    <br>
+    
+- *Outliers*
+    * The mean number of edits per day for each article (top 5\%).
+    
+    <br>
+
+- *Random*
+    * Excluding the previous 67 articles, we radomly picked another 67 articles.
 
 <!-- -------------------------------- -->
 
-# Statistics
+# Found something we can actually use! Now what?
 
 ## Number of comments and unique users
 
