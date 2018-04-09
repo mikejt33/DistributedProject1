@@ -112,8 +112,33 @@ pandoc.table(head(top1000_revisions_in_a_day[,1:3], 6), justify = 'right')
 
 ## Bickering and Vandalism 
 
+- Edit war Flag: $\dfrac{\# \text{unique users}}{\# \text{comments}}$
+- Troll flag: Count of the vandalism tag per article
+
+<!-- -------------------------------- -->
 
 
+# Visualization
+
+## Edit War Flags
+
+## Top 10 Edits
+
+## Choropleth
+
+<!-- -------------------------------- -->
+
+# Condoms
+
+<!-- -------------------------------- -->
+
+
+# Barnard's Star
+
+<!-- -------------------------------- -->
+
+
+# Conclusion
 
 <!-- -------------------------------- -->
 
