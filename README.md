@@ -63,7 +63,7 @@ TEXTDATA 229
 
 ### 4. Condoms and Stars
 
-We decided to further investigate the Barnard’s Star and Condom articles based our generated statistics and visual inspection.
+We decided to further investigate the Barnard’s Star and Condom articles based our generated statistics combined with visual inspection of the comments section in our attempt to find articles that experienced an unusual amount of edits and have a compelling back and forth banter in the comments section.
 
   
 ### 5. Comparison and Results
