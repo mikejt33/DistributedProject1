@@ -62,7 +62,7 @@ TEXTDATA 1214"
 
 # C:/Users/User/Google Drive/Distributed Computing/DistributedProject1.git
 
-top1000_revisions_in_a_day <- read_csv("D:/MasterProgram/DistributedProject1/Outputs/top1000 revisions in a day.csv")
+top1000_revisions_in_a_day <- read_csv("D:/MasterProgram/DistributedProject1/Outputs/top1000_revisions_in_a_day.csv")
 
 inital_output_example <- read_csv("D:/MasterProgram/DistributedProject1/Outputs/inital_output_example.csv")
 ```
