@@ -60,7 +60,15 @@ TEXTDATA 1214"
 
 top1000_revisions_in_a_day <- read_csv("top1000 revisions in a day.csv")
 
+<<<<<<< HEAD
 inital_output_example <- read_csv("inital_output_example.csv")
+=======
+# C:/Users/User/Google Drive/Distributed Computing/DistributedProject1.git
+
+top1000_revisions_in_a_day <- read_csv("D:/MasterProgram/DistributedProject1/Outputs/top1000_revisions_in_a_day.csv")
+
+inital_output_example <- read_csv("D:/MasterProgram/DistributedProject1/Outputs/inital_output_example.csv")
+>>>>>>> 86f744e92df0784dca01e1b299f0adf66fd52968
 ```
 
 # Introduction
@@ -209,7 +217,14 @@ We found several good stories to tell, we brought you two.
 
 ## What triggered the mass edits?
 
+<<<<<<< HEAD
 <a href="https://en.wikipedia.org/wiki/Barnard%27s_Star" data-preview-link>Barnard's Star</a>
+=======
+Barnard’s Star was the wikipedia “article of the day” when it saw its spike in edits. We attribute the spike in edits to be due to the people “trolling” this article due to its unexpected exposure as being selected as the article of the day on October 18, 2007.
+
+https://en.wikipedia.org/wiki/Wikipedia:Today%27s_featured_article/October_18,_2007
+
+>>>>>>> 86f744e92df0784dca01e1b299f0adf66fd52968
 
 
 ## Wordcloud
@@ -226,7 +241,14 @@ We found several good stories to tell, we brought you two.
 
 ## What triggered the mass edits?
 
+<<<<<<< HEAD
 <a href="https://en.wikipedia.org/wiki/Condom" data-preview-link>Condom</a>
+=======
+On December 25, 2005, the Catholic Church released a statement stating that “Safe sex” in regards to sexual activity using condoms is not actually safe.  The condom article saw its spike in edits on December 26, 2005 - one day after this released statement. 
+
+https://catholicnews.sg/index.php?option=com_content&view=article&id=709:e2809csafe-sexe2809d-is-not-really-safe&catid=140:december-2005&Itemid=473&lang=en
+
+>>>>>>> 86f744e92df0784dca01e1b299f0adf66fd52968
 
 ## Wordcloud
 
