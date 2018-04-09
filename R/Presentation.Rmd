@@ -10,6 +10,7 @@ output:
     reveal_options:
     slideNumber: true
     previewLinks: true
+    counter: true
 ---
 
 ```{r setup, include=FALSE}
@@ -120,20 +121,59 @@ pandoc.table(head(top1000_revisions_in_a_day[,1:3], 6), justify = 'right')
 
 # Visualization
 
-## Edit War Flags
+
 
 ## Top 10 Edits
 
-## Choropleth
 
 <!-- -------------------------------- -->
 
 # Condoms
 
+## Wordcloud
+
+## Edit War Flags
+
+Dataset: Outlier, Article: Condom, UniqueUser: 17, TotalRevisions: 94  Ratio: 0.1809
+
+```
+08:42:42	Locke_Cole  	/* Proper use */ restoring proper use section 
+08:46:10	Chooserr    	this was already voted on, bring it up on the talk 
+                        page before making edits like tht 
+08:51:07	Locke_Cole   	rvt 
+08:57:40	Chooserr    	rvt it was agreed on 
+10:35:47	FCYTravis   	/* Condoms & the Environment */ Stupid. You might as well 
+                        add such a section to [[McDonalds]] or [[Hamburger]] or [[Soda]]. 
+10:43:10	FCYTravis   	/* Environmental impact */ 
+
+16:36:26	Locke_Cole  	rvt - rewrite was better 
+16:46:57	63.22.0.39	rvt - censorship 
+16:50:51	FreplySpang	  rv: Agree that FCYTravis' rewrite was better, and no, it's not                                 censorship. Discuss on talk if you disagree. 
+16:59:36	63.22.0.39	rvt - and since you're using puppets to avoid 
+                        [[WP:3RR|the 3RR rule]], I'll count this as your 3rd rvt 
+17:18:46	63.22.0.39	restore {{sprotect}} template 
+17:29:11	FreplySpang	  remove misused sprotect template; revert to FCYTravis' version as                              discussed on talk 
+19:12:37	Chooserr	    /* Environmental impact */ put my version back - has specific sources
+                        - but left the bit about Polyethylene condoms and their landfill mass
+                        being negligible because that is important 
+20:40:12	FCYTravis	    rm sensationalism "holy god no condoms are damaging the environment OH
+                        NOES!!!!111!!eleven!1!1!" Bin it. 
+21:04:54	63.22.55.169	rvt to last concensus version, abusive edit summaries won't get you
+                        anywhere 
+21:11:40	FCYTravis	    There's hardly a consensus for that version. 
+21:18:13	63.22.55.169	rv to last (pre-troll)version 
+21:25:35	La_goutte_de_pluie	rv censorship 
+```
+
 <!-- -------------------------------- -->
 
 
 # Barnard's Star
+
+## Wordcloud
+
+## Choropleth
+
 
 <!-- -------------------------------- -->
 

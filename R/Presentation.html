@@ -474,14 +474,6 @@ ul, ol, div, p {
 	font-size: 14px;
 }
 
-.iframe {
-  overflow: hidden;
-  position: relative;
-  width:100px;
-  height:850px;
-  -ms-zoom: 0.5;
-}
-
 </script>
 
 
@@ -506,7 +498,8 @@ document.getElementsByTagName('head')[0].appendChild(style);
 </section>
 
 <section class="slide level2">
-<iframe class = "iframe" src="https://public.tableau.com/views/WikipediaEdits/Low10?:embed=y&:display_count=yes?:showVizHome=no&:embed=true" width="1000" height="1000"></iframe>
+
+<!-- -------------------------------- -->
 </section>
 <section><section id="introduction" class="titleslide slide level1"><h1>Introduction</h1></section><section id="data" class="slide level2">
 <h2>Data</h2>
@@ -621,21 +614,54 @@ A closer look into the articles for <em>Barnard’s Star</em> and <em>Condoms</e
 </section><section id="bickering-and-vandalism" class="slide level2">
 <h2>Bickering and Vandalism</h2>
 <ul>
-<li>Edit war Flag</li>
-<li>Troll flag</li>
+<li>Edit war Flag: <span class="math inline">\(\dfrac{\# \text{unique users}}{\# \text{comments}}\)</span></li>
+<li>Troll flag: Count of the vandalism tag per article</li>
 </ul>
 <!-- -------------------------------- -->
 </section></section>
-<section><section id="visualization" class="titleslide slide level1"><h1>Visualization</h1></section><section id="edit-war-flags" class="slide level2">
-<h2>Edit War Flags</h2>
-</section><section id="top-10-edits" class="slide level2">
+<section><section id="visualization" class="titleslide slide level1"><h1>Visualization</h1></section><section id="top-10-edits" class="slide level2">
 <h2>Top 10 Edits</h2>
+<!-- -------------------------------- -->
+</section></section>
+<section><section id="condoms" class="titleslide slide level1"><h1>Condoms</h1></section><section id="wordcloud" class="slide level2">
+<h2>Wordcloud</h2>
+</section><section id="edit-war-flags" class="slide level2">
+<h2>Edit War Flags</h2>
+<p>Dataset: Outlier, Article: Condom, UniqueUser: 17, TotalRevisions: 94 Ratio: 0.1809</p>
+<pre><code>08:42:42    Locke_Cole      /* Proper use */ restoring proper use section 
+08:46:10    Chooserr        this was already voted on, bring it up on the talk 
+                        page before making edits like tht 
+08:51:07    Locke_Cole      rvt 
+08:57:40    Chooserr        rvt it was agreed on 
+10:35:47    FCYTravis       /* Condoms &amp; the Environment */ Stupid. You might as well 
+                        add such a section to [[McDonalds]] or [[Hamburger]] or [[Soda]]. 
+10:43:10    FCYTravis       /* Environmental impact */ 
+
+16:36:26    Locke_Cole      rvt - rewrite was better 
+16:46:57    63.22.0.39  rvt - censorship 
+16:50:51    FreplySpang   rv: Agree that FCYTravis' rewrite was better, and no, it's not                                 censorship. Discuss on talk if you disagree. 
+16:59:36    63.22.0.39  rvt - and since you're using puppets to avoid 
+                        [[WP:3RR|the 3RR rule]], I'll count this as your 3rd rvt 
+17:18:46    63.22.0.39  restore {{sprotect}} template 
+17:29:11    FreplySpang   remove misused sprotect template; revert to FCYTravis' version as                              discussed on talk 
+19:12:37    Chooserr        /* Environmental impact */ put my version back - has specific sources
+                        - but left the bit about Polyethylene condoms and their landfill mass
+                        being negligible because that is important 
+20:40:12    FCYTravis       rm sensationalism &quot;holy god no condoms are damaging the environment OH
+                        NOES!!!!111!!eleven!1!1!&quot; Bin it. 
+21:04:54    63.22.55.169    rvt to last concensus version, abusive edit summaries won't get you
+                        anywhere 
+21:11:40    FCYTravis       There's hardly a consensus for that version. 
+21:18:13    63.22.55.169    rv to last (pre-troll)version 
+21:25:35    La_goutte_de_pluie  rv censorship </code></pre>
+<!-- -------------------------------- -->
+</section></section>
+<section><section id="barnards-star" class="titleslide slide level1"><h1>Barnard’s Star</h1></section><section id="wordcloud-1" class="slide level2">
+<h2>Wordcloud</h2>
 </section><section id="choropleth" class="slide level2">
 <h2>Choropleth</h2>
 <!-- -------------------------------- -->
 </section></section>
-<section><section id="condoms" class="titleslide slide level1"><h1>Condoms</h1></section></section>
-<section><section id="barnards-star" class="titleslide slide level1"><h1>Barnard’s Star</h1></section></section>
 <section><section id="conclusion" class="titleslide slide level1"><h1>Conclusion</h1></section></section>
     </div>
   </div>
