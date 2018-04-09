@@ -1,7 +1,7 @@
 library(tidyverse)
 library(mltools)
 
-data <- read.csv("Intelligent_Design_articles.csv")
+data <- read.csv("clean_condoms_comments.csv")
 colnames(data) <- c("Design", "time", "name","ip", "comment","na")
 time <- data$time
 df <- data.frame(substr(time,12,16))
@@ -15,21 +15,12 @@ df <- df %>%
 
 df$bins <- bin_data(df$breaker, bins=c(0, 4,9, 14, 20, 24), boundaryType = "[lorc")
 
-###
-
-plot(df$bins, main = "Frequency")
-
-
-ggplot(df, aes(df$breaker, fill = bins)) + geom_histogram(binwidth = 4) 
-
-
-ggplot(df, aes(x=bins)) + geom_histogram(aes(y = ..count../sum(..count..)))
-
-
+#plot(df$bins, main = "Frequency")
+#ggplot(df, aes(df$breaker, fill = bins)) + geom_histogram(binwidth = 4) 
+#ggplot(df, aes(x=bins)) + geom_histogram(aes(y = ..count../sum(..count..)))
 
 ggplot(data = df, aes(x = df$bins, fill = bins))+
   geom_bar() + 
   labs(x = "Time bins (Military Time)",
-       title = "Distribution of users editing Intelligent Design over 24 hr period") + 
-  ggsave("ID.time.comment.breakdown.png")
-
+       title = "Distribution of users editing the Condom article over 24 hr period in EST") + 
+  ggsave("Condom_comment_distribution.png") 

@@ -1,129 +1,188 @@
 ---
-title: "Article Name"
-author: Lilly, Joe, Adriana, Mike, Stephanie
+title: "<huge> Edit Wars </huge> <br> <small> When Stars and Condoms Collide </small>"
+author: "<small> Lilly, Joe, Adriana, Mike, Stephanie </small>"
 date: April 10, 2018
 output:
   revealjs::revealjs_presentation:
-    theme: blood
+    theme: night
     center: true
     transition: slide
     reveal_options:
     slideNumber: true
     previewLinks: true
+    counter: true
 ---
 
 ```{r setup, include=FALSE}
+#Packages
 knitr::opts_chunk$set(echo = TRUE)
 library(revealjs)
 library(tidyverse)
-library(mltools)
-
-# Pie chart 
-data_pie_chart <- read.csv("intelligent_design_subjects.csv", strip.white = TRUE)
-colnames(data_pie_chart) <- "subject"
-data_pie_chart$count <- rep(1,nrow(data_pie_chart))
-d_pie <- table(data_pie_chart)
-df_pie <- data.frame(d_pie)
-
-df_pie <- df_pie %>%
-  select(subject,Freq) %>%
-  filter(Freq > 1)
-
-df_pie.percent <- df_pie %>%
-  mutate(subject =subject,
-         cumulatve = cumsum(Freq),
-         midpoint = cumulatve - Freq /2,
-         labels = paste0(round((Freq/sum(Freq))*100,1),"%"))
-
-df_pie.percent$subject.percent <- with(df_pie.percent, paste0(subject, " ",labels))
+library(readr)
+library(pander)
 
 
-# Visualizing time graphs
-data_time <- read.csv("Intelligent_Design_articles.csv")
-colnames(data_time) <- c("Design", "time", "name","ip", "comment","na")
-time <- data_time$time
-df_time <- data.frame(substr(time,12,16))
-df_time <- df_time %>%
-  mutate(id = row_number())
-colnames(df_time) <- c("time","id")
+#Loading data
+raw.txt <- "REVISION 12 122974 Anarchism 2002-07-23T01:12:22Z Brion_VIBBER 51
+CATEGORY IMAGE MAIN Syndicalism Nihilism Gustave_de_Molinari Benjamin_Tucker
+Benjamin_Tucker Noam_Chomsky Peter_Kropotkin Leo_Tolstoy Leo_Tolstoy
+Classical_liberalism Individualist_anarchism Individualist_anarchism
+Individualist_anarchism Individualist_anarchism Libertarianism Libertarianism
+Anomie Anomie Mutual_aid Mutual_aid General_strike Atheism Free_Spirit
+Libertarian_socialism Libertarian_socialism Libertarian_socialism
+Lysander_Spooner Capitalism Mikhail_Bakunin Self-defense Political Minarchism
+Punk_rock William_McKinley Anarcho-syndicalists Karl_Marx Anarchism/Todo
+Coercion John_Locke Anarcho-capitalism Anarcho-capitalism Anarcho-capitalism
+Anarcho-capitalism Regicide Government Michael_Bakunin Property_damage
+Max_Stirner Rudolph_Rocker Peter_Kroptkin Non-violent_resistance Proudhon
+David_Friedman Voltairine_de_Cleyre TALK USER USER_TALK OTHER Pl:Anarchizm
+Fr:Anarchisme Eo:Anarkismo EXTERNAL TEMPLATE COMMENT lang links: +fr, pl
+MINOR 1 TEXTDATA 1169"
 
-df_time <- df_time %>%
-  mutate(breaker = as.integer(substr(time,1,2)))
-
-
-df_time$bins <- bin_data(df_time$breaker, bins=c(0, 4,9, 14, 20, 24), boundaryType = "[lorc")
+top1000_revisions_in_a_day <- read_csv("C:/Users/User/Google Drive/Distributed Computing/DistributedProject1.git/Outputs/top1000 revisions in a day.csv")
 ```
 
-# Data
+<!-- -------------------------------- -->
 
-## Superset
+# Introduction
 
-- Title/date pairs + fields
-- 67 of them
+## Data
 
-## Outliers
+Complete edit history of all Wikipedia utill January 2008.
 
-- Title/date pairs + fields
-- 67 of them
+<ul style="list-style-type:square">
+  <li> `REVISION` ***</li>
+  <li> `CATEGORY` </li>
+  <li> `IMAGE`</li>
+  <li> `MAIN` </li>
+  <li> `EXTERNAL` </li>
+  <li> `TEMPLATE` </li>
+  <li> `COMMENT` *** </li>
+  <li> `MINOR` </li>
+  <li> `TEXTDATA` </li>
+</ul>
 
-# Tools
+## Our project
+
+<ol>
+  <li>Edit Wars?</li>
+  <li>How we found them</li>
+  <li>A closer look into the articles for *Barnard's Star* and *Condoms*</li>
+</ol>
+
+
+# What are edit wars and how to find them?
 
 ## Munging
 
-- Python's MRJob
-
-## Visualizations
-
-- Plotly
-- RStudio
-- SQL
-
-# Statistics
-
-## Number of comments
-
-- Assumption
-- How it was collected
-- Goal
-
-## Number of unique users
-
-- Assumption
-- How it was collected
-- Goal
-
-## Bickering Flag
-
-- Assumption
-- Result
-
-# Visualizations
-
-## Notable Findings
-
-Intelligent Design Article
-
-+ Spike in edits on December 21, 2005
-+ On December 20, 2005, US court banned the teaching of Intelligent Design in public schools.
-+ [Kitzmiller v. Dover Area School District]([0[[]]])
-+ Most likely this spike in edits is due to this ruling the day before
-
-## Pie Chart
-
-```{r }
-ggplot(df_pie, aes(x = "", y = Freq, fill = subject)) + geom_bar(width =1, stat ="identity")
-
-pie <- ggplot(df_pie.percent, aes(x = "", y = Freq, fill = subject.percent)) + 
-  geom_bar(width =1, stat = "identity") + 
-  coord_polar(theta = "y", start =0) +
-  labs(x ="", y ="", title = "Breakdown of Edits made to Different Dubjects of Intelligent Design wiki \n", fill = "Subjects")+
-  ggsave("ID.subject.pie.chart.png") +
-
-pie <- pie +
-  theme(
-        rect = element_rect(fill = "transparent") # all rectangles
-      )
+```{r raw data}
+cat(raw.txt)
 ```
 
+## Making sense of the data
+
+```{r}
+pandoc.table(head(top1000_revisions_in_a_day[,1:3], 6), justify = 'right')
+```
+
+
+## Datasets
+
+- *Superset*
+    * A list of every article's date and number of edits for that date.
+    
+    <br>
+    
+- *Outliers*
+    * The mean number of edits per day for each article (top 5\%).
+    
+    <br>
+
+- *Random*
+    * Excluding the previous 67 articles, we radomly picked another 67 articles.
+
+<!-- -------------------------------- -->
+
+# Found something we can actually use! Now what?
+
+## Number of comments and unique users
+
+- Assumption
+- How it was collected
+- Goal
+
+## Bickering and Vandalism 
+
+- Edit war Flag: $\dfrac{\# \text{unique users}}{\# \text{comments}}$
+- Troll flag: Count of the vandalism tag per article
+
+<!-- -------------------------------- -->
+
+
+# Visualization
+
+
+
+## Top 10 Edits
+
+
+<!-- -------------------------------- -->
+
+# Condoms
+
+## Wordcloud
+
+## Edit War Flags
+
+Dataset: Outlier, Article: Condom, UniqueUser: 17, TotalRevisions: 94  Ratio: 0.1809
+
+```
+08:42:42	Locke_Cole  	/* Proper use */ restoring proper use section 
+08:46:10	Chooserr    	this was already voted on, bring it up on the talk 
+                        page before making edits like tht 
+08:51:07	Locke_Cole   	rvt 
+08:57:40	Chooserr    	rvt it was agreed on 
+10:35:47	FCYTravis   	/* Condoms & the Environment */ Stupid. You might as well 
+                        add such a section to [[McDonalds]] or [[Hamburger]] or [[Soda]]. 
+10:43:10	FCYTravis   	/* Environmental impact */ 
+
+16:36:26	Locke_Cole  	rvt - rewrite was better 
+16:46:57	63.22.0.39	rvt - censorship 
+16:50:51	FreplySpang	  rv: Agree that FCYTravis' rewrite was better, and no, it's not                                 censorship. Discuss on talk if you disagree. 
+16:59:36	63.22.0.39	rvt - and since you're using puppets to avoid 
+                        [[WP:3RR|the 3RR rule]], I'll count this as your 3rd rvt 
+17:18:46	63.22.0.39	restore {{sprotect}} template 
+17:29:11	FreplySpang	  remove misused sprotect template; revert to FCYTravis' version as                              discussed on talk 
+19:12:37	Chooserr	    /* Environmental impact */ put my version back - has specific sources
+                        - but left the bit about Polyethylene condoms and their landfill mass
+                        being negligible because that is important 
+20:40:12	FCYTravis	    rm sensationalism "holy god no condoms are damaging the environment OH
+                        NOES!!!!111!!eleven!1!1!" Bin it. 
+21:04:54	63.22.55.169	rvt to last concensus version, abusive edit summaries won't get you
+                        anywhere 
+21:11:40	FCYTravis	    There's hardly a consensus for that version. 
+21:18:13	63.22.55.169	rv to last (pre-troll)version 
+21:25:35	La_goutte_de_pluie	rv censorship 
+```
+
+<!-- -------------------------------- -->
+
+
+# Barnard's Star
+
+## Wordcloud
+
 ## Choropleth
+
+
+<!-- -------------------------------- -->
+
+
+# Conclusion
+
+<!-- -------------------------------- -->
+
+
+
+
 
