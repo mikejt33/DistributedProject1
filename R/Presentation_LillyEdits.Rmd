@@ -11,6 +11,7 @@ output:
     slideNumber: true
     previewLinks: true
     counter: true
+    toc: true
 ---
 
 ```{r setup, include=FALSE}
@@ -18,7 +19,6 @@ output:
 knitr::opts_chunk$set(echo = TRUE)
 library(revealjs)
 library(tidyverse)
-library(readr)
 library(pander)
 
 
@@ -58,30 +58,19 @@ COMMENT Automated conversion
 MINOR 1
 TEXTDATA 1214"
 
-# D:/MasterProgram/DistributedProject1 REPLACE by
+top1000_revisions_in_a_day <- read_csv("top1000 revisions in a day.csv")
 
-# C:/Users/User/Google Drive/Distributed Computing/DistributedProject1.git
-
-top1000_revisions_in_a_day <- read_csv("D:/MasterProgram/DistributedProject1/Outputs/top1000 revisions in a day.csv")
-
-inital_output_example <- read_csv("D:/MasterProgram/DistributedProject1/Outputs/inital_output_example.csv")
+inital_output_example <- read_csv("inital_output_example.csv")
 ```
 
 # Introduction
 
 ## Original Data
 
-<font size="5"> Complete edit history of all Wikipedia from inception till January 2008 - all revisions/pages.
 
-Original zip file -> 18 GB, unzipped raw data file -> 291 GB. </font>
+- Complete edit history of all Wikipedia (2001-2008).
 
-<font size="4">
-<ul style="list-style-type:square">
-  <li> 1 GB can store almost 300 songs in MP3 format.
-  <li> A DVD movie disc holds about 9.4 GB.
-  <li> Typcial laptop comes with 500 GB of storage.
-</ul>
-</font>
+- Original zip file > 18 GB, unzipped raw data file > 291 GB. 
 
 ![](http://blogs.tigarus.com/patcoola/wp-content/uploads/2013/05/GBInternet2013.gif)
 
@@ -99,7 +88,7 @@ Original zip file -> 18 GB, unzipped raw data file -> 291 GB. </font>
 
 ## Process Flow
 
-![](D:/MasterProgram/DistributedProject1/Outputs/Diagram.png)
+![](Diagram.png)
 
 ## Raw Data - Munging
 
@@ -120,22 +109,33 @@ cat(output.txt)
     <br>
 * 116,590,855 Edits
 
-## All articles - What does it look like?
+## All articles: *What does it look like?*
 
 ```{r}
 pandoc.table(head(inital_output_example), justify = 'right')
 ```
 
-<DIV ALIGN = LEFT> as you can see, looks pretty ungly...</DIV>
+## Superset: Making sense of the data!
 
-
-## Superset - Making sense of the data!
-
-<DIV ALIGN = LEFT>  getting a list of articles edited by date</DIV>
+Getting a list of articles edited by date:
 
 ```{r}
 pandoc.table(head(top1000_revisions_in_a_day[,1:3], 6), justify = 'right')
 ```
+
+## Data Structure and fields we used
+
+<ul style="list-style-type:square">
+  <li> `REVISION` ***</li>
+  <li> `CATEGORY` </li>
+  <li> `IMAGE`</li>
+  <li> `MAIN` </li>
+  <li> `EXTERNAL` </li>
+  <li> `TEMPLATE` </li>
+  <li> `COMMENT` *** </li>
+  <li> `MINOR` </li>
+  <li> `TEXTDATA` </li>
+</ul>
 
 
 ## Datasets
@@ -154,21 +154,6 @@ pandoc.table(head(top1000_revisions_in_a_day[,1:3], 6), justify = 'right')
     * Excluding the previous 67 articles, we radomly picked another 67 articles.
     
 
-## Data Structure and fields we used
-
-<ul style="list-style-type:square">
-  <li> `REVISION` ***</li>
-  <li> `CATEGORY` </li>
-  <li> `IMAGE`</li>
-  <li> `MAIN` </li>
-  <li> `EXTERNAL` </li>
-  <li> `TEMPLATE` </li>
-  <li> `COMMENT` *** </li>
-  <li> `MINOR` </li>
-  <li> `TEXTDATA` </li>
-</ul>
-
-
 <!-- -------------------------------- -->
 
 # Found something we can actually use! Now what?
@@ -184,25 +169,38 @@ pandoc.table(head(top1000_revisions_in_a_day[,1:3], 6), justify = 'right')
 <iframe src="https://public.tableau.com/views/WikipediaEdits/Top10Edits?:embed=y&:display_count=yes"></iframe>
 
 
-## Assumptions - Bickering and Vandalism 
+## Bickering and Vandalism 
 
-<DIV ALIGN = LEFT> Here is how we defined the flags:</DIV>
-<br>
+ <br>
 
-- Edit war Flag: $\dfrac{\# \text{unique users}}{\# \text{comments}}$
-- Troll flag: Count of the vandalism tag per article
 
-## Top 10 Edit Wars:
+- "Edit-War" Flag: $ \qquad \dfrac{\# \text{unique users}}{\# \text{comments}}$
+ 
+ <br>
+
+- Troll Flag: Count of the vandalism tag per article
+
+## Top 10 Edit Wars
+
+<section>
+<iframe data—src="https://public.tableau.com/views/WikipediaEdits/Low10?:embed=y&:display_count=yes&publish=yes" style='width:900px; height: 500px;'></iframe>
+</section>
+
+
 
 <iframe src="https://public.tableau.com/views/WikipediaEdits/Low10?:embed=y&:display_count=yes&publish=yes"></iframe>
 
-## Goals:
+## Goals
 
-- Find Stories with Edit Wars / Trolls
-- GOAL 2
-- GOAL 3
+  <br>
 
-Bottom line, we found several good stories to tell, and here are two of them...
+- Create a methodology
+- Find something interesting
+- Tell a story
+
+  <br>
+
+We found several good stories to tell, we brought you two.
 
 <!-- -------------------------------- -->
 
@@ -211,68 +209,45 @@ Bottom line, we found several good stories to tell, and here are two of them...
 
 ## What triggered the mass edits?
 
+<a href="https://en.wikipedia.org/wiki/Barnard%27s_Star" data-preview-link>Barnard's Star</a>
+
+
 ## Wordcloud
 
-![](D:/MasterProgram/DistributedProject1/Outputs/Barnard_WordCloud.png)
+<img src="Barnard_WordCloud.png" style="background:none; border:none; box-shadow:none;">
+
 
 ## Choropleth
 
 
 <!-- -------------------------------- -->
 
-# Condoms
+# Condom
 
 ## What triggered the mass edits?
 
+<a href="https://en.wikipedia.org/wiki/Condom" data-preview-link>Condom</a>
+
 ## Wordcloud
 
-![](D:/MasterProgram/DistributedProject1/Outputs/Comdom_WordCloud.png)
+<img src="Comdom_WordCloud.png" style="background:none; border:none; box-shadow:none;">
 
 ## Edit War Flags
 
 Dataset: Outlier, Article: Condom, UniqueUser: 17, TotalRevisions: 94  Ratio: 0.1809
 
-```
-08:42:42	Locke_Cole  	/* Proper use */ restoring proper use section 
-08:46:10	Chooserr    	this was already voted on, bring it up on the talk 
-                        page before making edits like tht 
-08:51:07	Locke_Cole   	rvt 
-08:57:40	Chooserr    	rvt it was agreed on 
-10:35:47	FCYTravis   	/* Condoms & the Environment */ Stupid. You might as well 
-                        add such a section to [[McDonalds]] or [[Hamburger]] or [[Soda]]. 
-10:43:10	FCYTravis   	/* Environmental impact */ 
 
-16:36:26	Locke_Cole  	rvt - rewrite was better 
-16:46:57	63.22.0.39	rvt - censorship 
-16:50:51	FreplySpang	  rv: Agree that FCYTravis' rewrite was better, and no, it's not                                 censorship. Discuss on talk if you disagree. 
-16:59:36	63.22.0.39	rvt - and since you're using puppets to avoid 
-                        [[WP:3RR|the 3RR rule]], I'll count this as your 3rd rvt 
-17:18:46	63.22.0.39	restore {{sprotect}} template 
-17:29:11	FreplySpang	  remove misused sprotect template; revert to FCYTravis' version as                              discussed on talk 
-19:12:37	Chooserr	    /* Environmental impact */ put my version back - has specific sources
-                        - but left the bit about Polyethylene condoms and their landfill mass
-                        being negligible because that is important 
-20:40:12	FCYTravis	    rm sensationalism "holy god no condoms are damaging the environment OH
-                        NOES!!!!111!!eleven!1!1!" Bin it. 
-21:04:54	63.22.55.169	rvt to last concensus version, abusive edit summaries won't get you
-                        anywhere 
-21:11:40	FCYTravis	    There's hardly a consensus for that version. 
-21:18:13	63.22.55.169	rv to last (pre-troll)version 
-21:25:35	La_goutte_de_pluie	rv censorship 
-```
 
 
 
 <!-- -------------------------------- -->
 
-
 # Conclusion
 
-## ...
+- We learned
+- We wanted to do more
 
-- What we learend?
-- What more we wanted to do?
-- ONE MORE QUESTION?
+## Questions
 
 <!-- -------------------------------- -->
 
