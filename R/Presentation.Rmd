@@ -58,7 +58,7 @@ COMMENT Automated conversion
 MINOR 1
 TEXTDATA 1214"
 
-top1000_revisions_in_a_day <- read_csv("top1000 revisions in a day.csv")
+top1000_revisions_in_a_day <- read_csv("top1000_revisions_in_a_day.csv")
 inital_output_example <- read_csv("inital_output_example.csv")
 ```
 
@@ -87,7 +87,7 @@ inital_output_example <- read_csv("inital_output_example.csv")
 
 ## Process Flow
 
-![](Diagram.png)
+<img src="Diagram.png" style="background:none; border:none; box-shadow:none;">
 
 ## Raw Data - Munging
 
@@ -283,6 +283,8 @@ Dataset: Outlier, Article: Condom, UniqueUser: 17, TotalRevisions: 94  Ratio: 0.
 <!-- -------------------------------- -->
 
 # Conclusion
+
+##
 
 - We learned
 - We wanted to do more
