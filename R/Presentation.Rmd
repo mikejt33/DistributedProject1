@@ -252,7 +252,7 @@ We found several good stories to tell, we brought you two.
 
 ## Chat
 
-<small>
+<small><b>
 
 | Timestamp | User              | Comment                                                                                                                                                                |
 |-----------|-------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -271,7 +271,7 @@ We found several good stories to tell, we brought you two.
 | 02:53:45  | Analblazer        |                                                                                                                                                                        |
 | 02:54:35  | SandyGeorgia      | [[WP:UNDO|Undid]] revision 165329568   by [[Special:Contributions/Analblazer|Analblazer]] ([[User   talk:Analblazer|talk]])                                            |
 | 02:55:19  | ip:70.15.116.59   | Quit the vandalism already                                                                                                                                             |
-</small>
+</b></small>
 
 
 ## What triggered the mass edits?
@@ -314,7 +314,7 @@ On December 25, 2005, the Catholic Church released a statement stating that “S
 
 ## Chat
 
-<small>
+<small><b>
 
 | Timestamp  | User             | Comment                                                                                                                                                                                                      |
 |------------|------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -330,11 +330,11 @@ On December 25, 2005, the Catholic Church released a statement stating that “S
 | T03:52:26Z | FCYTravis        | rv, perfectly well-sourced rebuttal.                                                                                                                                                                         |
 | T05:27:53Z | Rose_Garden      | Rv. Restore sourced material.                                                                                                                                                                                |
 | T05:28:46Z | Ytrewqt          | rv, I seem to have picked up a wiki   stalker, that didn't take long                                                                                                                                         |                                                                                                                                        	|
-</small>
+</b></small>
 
 ## Chat
 
-<small>
+<small><b>
 
 | T08:42:42  | Locke_Cole         | /* Proper use */ restoring proper use section                                                                                                                                               |
 |------------|--------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -354,7 +354,7 @@ On December 25, 2005, the Catholic Church released a statement stating that “S
 | T21:18:13Z | ip:63.22.55.169    | rv to last (pre-troll)version                                                                                                                                                               |
 | T21:25:35Z | La_goutte_de_pluie | rv censorship                                                                                                                                                                               |
 
-</small>
+</b></small>
 
 
 
@@ -365,7 +365,7 @@ On December 25, 2005, the Catholic Church released a statement stating that “S
 # Conclusion
 
 
-# Questions
+# Questions?
 
 
 # Thank you!
