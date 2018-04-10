@@ -60,6 +60,7 @@ TEXTDATA 1214"
 
 top1000_revisions_in_a_day <- read_csv("top1000_revisions_in_a_day.csv")
 inital_output_example <- read_csv("inital_output_example.csv")
+top_most_edited <- read.csv("top_most_edited.csv")
 ```
 
 # Introduction
@@ -76,14 +77,16 @@ inital_output_example <- read_csv("inital_output_example.csv")
 
 ## Our project
 
+Using Wikipedia edit history, our interest was:
+
 <ol>
   <li>Edit Wars?</li>
-  <li>How we found them</li>
-  <li>A closer look into the articles for *Barnard's Star* and *Condoms*</li>
+  <li>How we found them?</li>
+  <li>A closer look into the articles for <u>Barnard's Star</u> and <u>Condoms</u>.</li>
 </ol>
 
 
-# What are edit wars and how to find them?
+# What are "Edit Wars", and how to find them?
 
 ## Process Flow
 
@@ -114,6 +117,15 @@ cat(output.txt)
 pandoc.table(head(inital_output_example), justify = 'right')
 ```
 
+As you can see, looks pretty ungly...
+
+## Top 10 overall edited
+
+```{r}
+pandoc.table(top_most_edited, justify = 'right')
+```
+
+
 ## Superset: Making sense of the data!
 
 Getting a list of articles edited by date:
@@ -121,6 +133,21 @@ Getting a list of articles edited by date:
 ```{r}
 pandoc.table(head(top1000_revisions_in_a_day[,1:3], 6), justify = 'right')
 ```
+
+## Datasets
+
+- *Superset*
+    * A list of every article's date and number of edits for that date.
+    
+    <br>
+    
+- *Outliers*
+    * The mean number of edits per day for each article (top 5\%).
+    
+    <br>
+
+- *Random*
+    * Excluding the previous 67 articles, we radomly picked another 67 articles.
 
 ## Data Structure and fields we used
 
@@ -137,25 +164,11 @@ pandoc.table(head(top1000_revisions_in_a_day[,1:3], 6), justify = 'right')
 </ul>
 
 
-## Datasets
-
-- *Superset*
-    * A list of every article's date and number of edits for that date.
-    
-    <br>
-    
-- *Outliers*
-    * The mean number of edits per day for each article (top 5\%).
-    
-    <br>
-
-- *Random*
-    * Excluding the previous 67 articles, we radomly picked another 67 articles.
     
 
 <!-- -------------------------------- -->
 
-# Found something we can actually use! Now what?
+# Finally   manageable   dataset!       Now what?
 
 ## Number of comments and unique users
 
