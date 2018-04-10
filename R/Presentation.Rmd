@@ -79,15 +79,9 @@ top_most_edited <- read.csv("top_most_edited.csv")
 
 Using Wikipedia edit history, our interest was:
 
-<ol>
-  <li>Edit Wars?</li>
-  <li>How we found them?</li>
-  <li>A closer look into the articles for <u>Barnard's Star</u> and <u>Condoms</u>.</li>
-</ol>
-
 - Edit Wars?
 - How we found them?
-- A closer look into the articles for *Barnard's Star* and *Condom.*
+- A closer look into the articles for <u>Barnard's Star</u> and <u>Condoms</u>.
 
 
 # What are "Edit Wars", and how to find them?
@@ -194,16 +188,7 @@ pandoc.table(head(top1000_revisions_in_a_day[,1:3], 6), justify = 'right')
  
  <br>
 
-- Troll Flag: Count of the vandalism tag per article
-
-## Vandalism Tag
-
-- Total of 247 edits on October 18, 2007, with 132 unique contributors. 
-
-- 106 of these users shared only ip addresses (assumed anon)
-
-- 77% anonymous contributors
-
+- Troll Flag: Count of the vandalism tags per article
 
 ## Top 5 articles with the most vandalism tags
 
@@ -226,7 +211,15 @@ pandoc.table(head(top1000_revisions_in_a_day[,1:3], 6), justify = 'right')
 
 <iframe src="https://public.tableau.com/views/WikipediaEdits/Low10?:embed=y&:display_count=yes&publish=yes"></iframe>
 
-## Goals
+## World Map - Where anonymous users edit?
+
+https://public.tableau.com/views/Wikipediaeditmaps/WorldMap?:embed=y&:display_count=yes
+
+## USA Map - Where anonymous users edit?
+
+https://public.tableau.com/views/Wikipediaeditmaps/USAMap?:embed=y&:display_count=yes
+
+## Our goals where - 
 
   <br>
 
@@ -243,20 +236,15 @@ We found several good stories to tell, we brought you two.
 
 # Barnard's Star
 
-## What triggered the mass edits?
+## Story Statistics
 
-<img src="Barnard_FeatureStory.png" style="background:none; border:none; box-shadow:none;">
-
-## What triggered the mass edits?
-
-
-<a href="https://en.wikipedia.org/wiki/Barnard%27s_Star" data-preview-link>Barnard's Star</a>
-
-Barnard’s Star was the wikipedia “article of the day” when it saw its spike in edits. We attribute the spike in edits to be due to the people “trolling” this article due to its unexpected exposure as being selected as the article of the day on October 18, 2007.
-
-[Featured Article](https://en.wikipedia.org/wiki/Wikipedia:Today%27s_featured_article/October_18,_2007)
-
-
+- Dataset: Outlier
+- Article: Barnard's Star
+- Date: 2007-10-18
+- UniqueUser: 145
+- TotalRevisions: 266  
+- Ratio: 0.5451
+- Vandalims Flag: 29 (most in our dataset)
 
 ## Wordcloud
 
@@ -285,7 +273,16 @@ Barnard’s Star was the wikipedia “article of the day” when it saw its spik
 | 02:55:19  | ip:70.15.116.59   | Quit the vandalism already                                                                                                                                             |
 </small>
 
-## Choropleth
+
+## What triggered the mass edits?
+
+
+<a href="https://en.wikipedia.org/wiki/Barnard%27s_Star" data-preview-link>Barnard's Star</a>
+
+Barnard’s Star was the wikipedia “article of the day” when it saw its spike in edits. We attribute the spike in edits to be due to the people “trolling” this article due to its unexpected exposure as being selected as the article of the day on October 18, 2007.
+
+[Featured Article](https://en.wikipedia.org/wiki/Wikipedia:Today%27s_featured_article/October_18,_2007)
+<img src="Barnard_FeatureStory.png" style="background:none; border:none; box-shadow:none;">
 
 
 <!-- -------------------------------- -->
@@ -300,6 +297,15 @@ Barnard’s Star was the wikipedia “article of the day” when it saw its spik
 On December 25, 2005, the Catholic Church released a statement stating that “Safe sex” in regards to sexual activity using condoms is not actually safe.  The condom article saw its spike in edits on December 26, 2005 - one day after this released statement. 
 
 [Statement](https://catholicnews.sg/index.php?option=com_content&view=article&id=709:e2809csafe-sexe2809d-is-not-really-safe&catid=140:december-2005&Itemid=473&lang=en)
+
+## Story Statistics
+
+- Dataset: Outlier
+- Article: Condom
+- Date: 2005-12-26
+- UniqueUser: 17
+- TotalRevisions: 94  
+- Ratio: 0.1809
 
 
 ## Wordcloud
@@ -351,26 +357,18 @@ On December 25, 2005, the Catholic Church released a statement stating that “S
 </small>
 
 
-## Edit War Flags
 
-- Dataset: Outlier
-- Article: Condom
-- UniqueUser: 17
-- TotalRevisions: 94  
-- Ratio: 0.1809
 
 
 <!-- -------------------------------- -->
 
 # Conclusion
 
-##
 
-- We learned
-- We wanted to do more
+# Questions
 
-## Questions
 
+# Thank you!
 <!-- -------------------------------- -->
 
 
