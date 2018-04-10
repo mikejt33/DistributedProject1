@@ -85,6 +85,10 @@ Using Wikipedia edit history, our interest was:
   <li>A closer look into the articles for <u>Barnard's Star</u> and <u>Condoms</u>.</li>
 </ol>
 
+- Edit Wars?
+- How we found them?
+- A closer look into the articles for *Barnard's Star* and *Condom.*
+
 
 # What are "Edit Wars", and how to find them?
 
@@ -194,13 +198,23 @@ pandoc.table(head(top1000_revisions_in_a_day[,1:3], 6), justify = 'right')
 
 ## Vandalism Tag
 
-| Random Articles of Interest     | Outliers                    |
-|-----------------------------|---|------------------------|----|
-| Astronomical Unit           | 4 | Barnard's Star         | 29 |
-| Antartic Treaty System      | 3 | DNA                    | 12 |
-| Inca Empire                 | 3 | Blitzkrieg             | 10 |
-| Big Bang                    | 2 | Comet Shoemaker-Levy 9 | 6  |
-| December 10                 | 2 | Autism                 | 5  |
+- Total of 247 edits on October 18, 2007, with 132 unique contributors. 
+
+- 106 of these users shared only ip addresses (assumed anon)
+
+- 77% anonymous contributors
+
+
+## Top 5 articles with the most vandalism tags
+
+
+|         Random         |   |        Outliers        |    |
+|:----------------------:|:-:|:----------------------:|----|
+| Astronomical Unit      | 4 | Barnard's Star         | 29 |
+| Antartic Treaty System | 3 | DNA                    | 12 |
+| Inca Empire            | 3 | Blitzkrieg             | 10 |
+| Big Bang               | 2 | Comet Shoemaker-Levy 9 | 6  |
+| December 10            | 2 | Autism                 | 5  |
 
 ## Top 10 Edit Wars
 
@@ -231,6 +245,10 @@ We found several good stories to tell, we brought you two.
 
 ## What triggered the mass edits?
 
+<img src="Barnard_FeatureStory.png" style="background:none; border:none; box-shadow:none;">
+
+## What triggered the mass edits?
+
 
 <a href="https://en.wikipedia.org/wiki/Barnard%27s_Star" data-preview-link>Barnard's Star</a>
 
@@ -244,6 +262,28 @@ Barnard’s Star was the wikipedia “article of the day” when it saw its spik
 
 <img src="Barnard_WordCloud.png" style="background:none; border:none; box-shadow:none;">
 
+## Chat
+
+<small>
+
+| Timestamp | User              | Comment                                                                                                                                                                |
+|-----------|-------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| 02:12:59  | Angilbas          | /*   System summary */ Brightness of moon and planets if Barnard's Star were to   replace Sun                                                                          |
+| 02:16:59  | ip:68.126.204.102 | [[WP:AES|←]]Replaced page with   'xP'                                                                                                                                  |
+| 02:17:10  | ClueBot           | Reverting possible vandalism by   [[Special:Contributions/68.126.204.102]]. If this is a mistake                                                                       |
+| 02:21:23  | ip:68.126.204.102 |                                                                                                                                                                        |
+| 02:22:07  | Slakr             | Reverted 1 edit by   [[Special:Contributions/68.126.204.102|68.126.204.102]] identified as   [[WP:VAND|vandalism]] to last revision by [[User:ClueBot|ClueBot]].       |
+| 02:40:21  | ip:69.114.14.88   | /* System summary */                                                                                                                                                   |
+| 02:41:32  | ip:69.114.14.88   | /* System summary */                                                                                                                                                   |
+| 02:47:14  | ip:71.72.216.86   |                                                                                                                                                                        |
+| 02:48:04  | Assblazer         | Take THAT motherfucker.                                                                                                                                                |
+| 02:48:39  | VoABot_II         | BOT - Reverted edits by   [[Special:contributions/Assblazer|Assblazer]]   {[[User:VoABot_II/Help#Revert_reasons|vandalism]]} to revision #165328599 by   71.72.216.86. |
+| 02:49:36  | Lorkki            | Revert vandalism by 71.72.216.86                                                                                                                                       |
+| 02:52:42  | Analblazer        |                                                                                                                                                                        |
+| 02:53:45  | Analblazer        |                                                                                                                                                                        |
+| 02:54:35  | SandyGeorgia      | [[WP:UNDO|Undid]] revision 165329568   by [[Special:Contributions/Analblazer|Analblazer]] ([[User   talk:Analblazer|talk]])                                            |
+| 02:55:19  | ip:70.15.116.59   | Quit the vandalism already                                                                                                                                             |
+</small>
 
 ## Choropleth
 
@@ -262,41 +302,54 @@ On December 25, 2005, the Catholic Church released a statement stating that “S
 [Statement](https://catholicnews.sg/index.php?option=com_content&view=article&id=709:e2809csafe-sexe2809d-is-not-really-safe&catid=140:december-2005&Itemid=473&lang=en)
 
 
-## Chat
-
-```
-08:42:42	Locke_Cole  	/* Proper use */ restoring proper use section 
-08:46:10	Chooserr    	this was already voted on, bring it up on the talk 
-                        page before making edits like tht 
-08:51:07	Locke_Cole   	rvt 
-08:57:40	Chooserr    	rvt it was agreed on 
-10:35:47	FCYTravis   	/* Condoms & the Environment */ Stupid. You might as well 
-                        add such a section to [[McDonalds]] or [[Hamburger]] or [[Soda]]. 
-10:43:10	FCYTravis   	/* Environmental impact */ 
-
-16:36:26	Locke_Cole  	rvt - rewrite was better 
-16:46:57	63.22.0.39	rvt - censorship 
-16:50:51	FreplySpang	  rv: Agree that FCYTravis' rewrite was better, and no, it's not                                 censorship. Discuss on talk if you disagree. 
-16:59:36	63.22.0.39	rvt - and since you're using puppets to avoid 
-                        [[WP:3RR|the 3RR rule]], I'll count this as your 3rd rvt 
-17:18:46	63.22.0.39	restore {{sprotect}} template 
-17:29:11	FreplySpang	  remove misused sprotect template; revert to FCYTravis' version as                              discussed on talk 
-19:12:37	Chooserr	    /* Environmental impact */ put my version back - has specific sources
-                        - but left the bit about Polyethylene condoms and their landfill mass
-                        being negligible because that is important 
-20:40:12	FCYTravis	    rm sensationalism "holy god no condoms are damaging the environment OH
-                        NOES!!!!111!!eleven!1!1!" Bin it. 
-21:04:54	63.22.55.169	rvt to last concensus version, abusive edit summaries won't get you
-                        anywhere 
-21:11:40	FCYTravis	    There's hardly a consensus for that version. 
-21:18:13	63.22.55.169	rv to last (pre-troll)version 
-21:25:35	La_goutte_de_pluie	rv censorship 
-```
-
-
 ## Wordcloud
 
 <img src="Comdom_WordCloud.png" style="background:none; border:none; box-shadow:none;">
+
+## Chat
+
+<small>
+
+| Timestamp  | User             | Comment                                                                                                                                                                                                      |
+|------------|------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| T00:13:42Z | SarekOfVulcan    | rv - hope you don't actually think   sex and surgery are related beyond alphabetically                                                                                                                       |
+| T00:18:39Z | Chooserr         | rvt...I'll list the reasons on the   talk if you can wait a few seconds :)                                                                                                                                   |
+| T00:21:43Z | ip:81.102.251.15 | /* Anti-Condom Trends */                                                                                                                                                                                     |
+| T00:28:28Z | SarekOfVulcan    | /* Health issues */ remove talc ref   for invalid comparison between methods of entering abdominal cavity                                                                                                    |
+| T00:32:35Z | Chooserr         | rvt...I don't really understand   where you are coming from. It's used on the lubricant of the condom - when   the condom is inside it (the lubricant) can rub off or do what ever it   does...use talk pls  |
+| T02:13:02Z | Chooserr         | /* Health issues */ There is a   difference between N-nitrosamine and normal nitrosamines - Or they wouldn't   have seperate names right? :D                                                                 |
+| T02:18:01Z | SarekOfVulcan    | restored nitrosamine link                                                                                                                                                                                    |
+| T03:43:10Z | Ytrewqt          | RV! there are holes in that edit   summary I could fly a jet through                                                                                                                                         |
+| T03:51:33Z | Ytrewqt          | rv, I don't see ANY evidence that   the origional charges are false, smark, smark, smark, keep smarking and some   day it will come back and bite you in the ass                                             |
+| T03:52:26Z | FCYTravis        | rv, perfectly well-sourced rebuttal.                                                                                                                                                                         |
+| T05:27:53Z | Rose_Garden      | Rv. Restore sourced material.                                                                                                                                                                                |
+| T05:28:46Z | Ytrewqt          | rv, I seem to have picked up a wiki   stalker, that didn't take long                                                                                                                                         |                                                                                                                                        	|
+</small>
+
+## Chat
+
+<small>
+
+| T08:42:42  | Locke_Cole         | /* Proper use */ restoring proper use section                                                                                                                                               |
+|------------|--------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| T08:46:10  | Chooserr           | this was already voted on, bring it up on the talk page before making   edits like tht                                                                                                      |
+| T08:57:40  | Chooserr           | rvt it was agreed on                                                                                                                                                                        |
+| T10:35:47Z | FCYTravis          | /* Condoms & the Environment */ Stupid. You might as well add such a   section to [[McDonalds]] or [[Hamburger]] or [[Soda]].                                                               |
+| T16:36:26Z | Locke_Cole         | rvt - rewrite was better                                                                                                                                                                    |
+| T16:46:57Z | ip:63.22.0.39      | rvt - censorship                                                                                                                                                                            |
+| T16:50:51Z | FreplySpang        | rv: Agree that FCYTravis' rewrite was better, and no, it's not   censorship. Discuss on talk if you disagree.                                                                               |
+| T16:59:36Z | ip:63.22.0.39      | rvt - and since you're using puppets to avoid [[WP:3RR|the 3RR rule]],   I'll count this as your 3rd rvt                                                                                    |
+| T17:18:46Z | ip:63.22.0.39      | restore {{sprotect}} template                                                                                                                                                               |
+| T17:29:11Z | FreplySpang        | remove misused sprotect template; revert to FCYTravis' version as   discussed on talk                                                                                                       |
+| T19:12:37Z | Chooserr           | /* Environmental impact */ put my version back - has specific sources -   but left the bit about Polyethylene condoms and their landfill mass being   negligible because that is important  |
+| T20:40:12Z | FCYTravis          | rm sensationalism "holy god no condoms are damaging the environment   OH NOES!!!!111!!eleven!1!1!" Bin it.                                                                                  |
+| T21:04:54Z | ip:63.22.55.169    | rvt to last concensus version, abusive edit summaries won't get you   anywhere                                                                                                              |
+| T21:11:40Z | FCYTravis          | There's hardly a consensus for that version.                                                                                                                                                |
+| T21:18:13Z | ip:63.22.55.169    | rv to last (pre-troll)version                                                                                                                                                               |
+| T21:25:35Z | La_goutte_de_pluie | rv censorship                                                                                                                                                                               |
+
+</small>
+
 
 ## Edit War Flags
 
