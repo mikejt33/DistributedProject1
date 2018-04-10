@@ -250,6 +250,10 @@ We found several good stories to tell, we brought you two.
 
 <img src="Barnard_WordCloud.png" style="background:none; border:none; box-shadow:none;">
 
+## World Map - Where anonymous users edit?
+
+https://public.tableau.com/views/Wikipediaeditmaps/BarnardsStar?:embed=y&:display_count=yes
+
 ## Chat
 
 <small><b>
