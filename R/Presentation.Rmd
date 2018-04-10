@@ -192,6 +192,16 @@ pandoc.table(head(top1000_revisions_in_a_day[,1:3], 6), justify = 'right')
 
 - Troll Flag: Count of the vandalism tag per article
 
+## Vandalism Tag
+
+| Random Articles of Interest     | Outliers                    |
+|-----------------------------|---|------------------------|----|
+| Astronomical Unit           | 4 | Barnard's Star         | 29 |
+| Antartic Treaty System      | 3 | DNA                    | 12 |
+| Inca Empire                 | 3 | Blitzkrieg             | 10 |
+| Big Bang                    | 2 | Comet Shoemaker-Levy 9 | 6  |
+| December 10                 | 2 | Autism                 | 5  |
+
 ## Top 10 Edit Wars
 
 <section>
@@ -290,7 +300,11 @@ On December 25, 2005, the Catholic Church released a statement stating that “S
 
 ## Edit War Flags
 
-Dataset: Outlier, Article: Condom, UniqueUser: 17, TotalRevisions: 94  Ratio: 0.1809
+- Dataset: Outlier
+- Article: Condom
+- UniqueUser: 17
+- TotalRevisions: 94  
+- Ratio: 0.1809
 
 
 <!-- -------------------------------- -->
