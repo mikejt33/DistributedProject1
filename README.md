@@ -143,18 +143,11 @@ GROUP BY `Name`;
 
 ### 4. Condoms and Stars
 
-Barnard’s Star was the wikipedia “article of the day” when it saw its spike in edits. We attribute the spike in edits to be due to the people “trolling” this article due to its unexpected exposure as being selected as the article of the day on October 18, 2007.
+Barnard’s Star was the Wikipedia [article of the day](https://en.wikipedia.org/wiki/Wikipedia:Today%27s_featured_article/October_18,_2007) (on October 18, 2007), when it saw its spike in edits. Our hypothesis is that the sudden increase in exposure attracted all the trolls.
 
-https://en.wikipedia.org/wiki/Wikipedia:Today%27s_featured_article/October_18,_2007
-
-The condom article saw its spike in edits on December 26, 2005. This occurred one day after the Catholic Church released a statement stating that “Safe sex” in regards to sexual activity using condoms is not actually safe.
-
-https://catholicnews.sg/index.php?option=com_content&view=article&id=709:e2809csafe-sexe2809d-is-not-really-safe&catid=140:december-2005&Itemid=473&lang=en
-
-We believe this statement ignited the extensive editing that this article experienced.
+The [Condom article](https://catholicnews.sg/index.php?option=com_content&view=article&id=709:e2809csafe-sexe2809d-is-not-really-safe&catid=140:december-2005&Itemid=473&lang=en) saw its spike in edits on December 26, 2005. This occurred one day after the Catholic Church released a statement stating that safe sex in regards to sexual activity using condoms is not actually safe. We believe this statement ignited the extensive editing that this article experienced.
 
 
-### 5. Comparisons and results 
 
 
 
