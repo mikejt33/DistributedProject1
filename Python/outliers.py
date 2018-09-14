@@ -10,6 +10,7 @@ Date: 03/22/2018
 from mrjob.job import MRJob
 import csv
 import numpy as np
+from scipy.stats import poisson
 
 t_crit = {}  # Dictionary to store 95% confint critical values.
 
@@ -23,7 +24,7 @@ for line in iFile:
         title = "\"" + splt[0] + "\""
         mean = float(splt[1])
         var = float(splt[2])
-        t_crit[title] = mean + 1.96 * np.sqrt(mean) + 1
+        t_crit[title] = poisson.ppf(0.95, mean)  # 95th percentile for Poisson
 
 
 class outliers(MRJob):

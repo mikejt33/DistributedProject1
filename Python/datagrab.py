@@ -1,6 +1,7 @@
-"""Get article counts by day.
+"""Grab full rows of data of interest from en.wiki.numbers.good.gzip.
 
-Print rows that were breaking acbdl_redo
+Check each row in full, clean data file and emit only rows that were selected
+by outliers.py (which are listed in outlistFile and randomlistFile.)
 
 Author: Joe
 """

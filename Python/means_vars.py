@@ -1,6 +1,6 @@
 """Get article counts by day.
 
-Get the mean and variance of number of edits per day for each article
+Get the mean and variance of number of edits per day for each article.
 
 Author: Joe
 Date: 03/22/2018
